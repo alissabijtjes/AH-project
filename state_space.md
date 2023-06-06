@@ -13,9 +13,11 @@ n = 4
 4^20
 
 # opdracht 3
+
 (r+n-1)! / r!(n-1)!
-r = 
-n = 
+r = 25
+n = 3
+27!/(25!2!)
 
 # opdracht 4
 n! / r!(n-r)!
@@ -31,13 +33,26 @@ r = 32
 n = 110
 110! / (32!(110-32)!) = 110! / (32!78!)
 
+110! / (30!80!) + 110! / (31!79!) + 110! / (32!78!)
+
+
 # opdracht 5
 n! / r!(n-r)!
 r = 7
 n = 26
-26! / (7!(26-7)!) = 26! / (7!19!)
+26! / (7!(26-7)!) = 26!/(7!19!)
 
 # opdracht 6
 
+sum = 0
+for r in range(0, 31, 1):
+    element = (factorial(45)/(factorial((45-r)) * factorial(r))) * ((factorial((45-r)+(2-1)) / factorial(r) * factorial(2-1)))
+    sum += element
+print(sum)
+
+1.2353421086674186e+58
+
 
 # opdracht 7
+
+
