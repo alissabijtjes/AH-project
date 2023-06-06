@@ -13,6 +13,7 @@ n = 4
 4^20
 
 # opdracht 3
+
 (r+n-1)! / r!(n-1)!
 r = 25
 n = 3
@@ -43,11 +44,14 @@ n = 26
 26! / (7!(26-7)!) = 26! / (7!19!)
 
 # opdracht 6
+
 sum = 0
 for r in range(0, 31, 1):
     element = (factorial(45)/(factorial((45-r)) * factorial(r))) * ((factorial((45-r)+(2-1)) / factorial(r) * factorial(2-1)))
     sum += element
 print(sum)
+
+1.2353421086674186e+58
 
 1.2353421086674186e+58
 
