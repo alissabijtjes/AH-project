@@ -25,18 +25,18 @@ def Connecties():
             for row in reader:
 
                 for station_1 in stations:
-                    if station_1.station_name == row[0]:
+                    if station_1.name == row[0]:
 
                         for station_2 in stations:
-                            if station_2.station_name == row[1]:
-                                station_1.add_connection(station_2, row[2])
+                            if station_2.name == row[1]:
+                                station_1.add_connection(station_2, float(row[2]))
                 
                 for station_1 in stations:
-                    if station_1.station_name == row[1]:
+                    if station_1.name == row[1]:
 
                         for station_2 in stations:
-                            if station_2.station_name == row[0]:
-                                station_1.add_connection(station_2, row[2])
+                            if station_2.name == row[0]:
+                                station_1.add_connection(station_2, float(row[2]))
 
     return stations
 

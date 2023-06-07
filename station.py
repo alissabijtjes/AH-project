@@ -3,10 +3,10 @@
 class Station():
     """Class station."""
     counter = 1
-    def __init__(self, station_name, y, x):
+    def __init__(self, name, y, x):
         """Initalize class."""
-        self.station_id = Station.counter
-        self.station_name = station_name
+        self.id = Station.counter
+        self.name = name
         self.visited = False
         self.coordinates = (y, x)
         self.connections = []
@@ -16,4 +16,16 @@ class Station():
         """"""
         self.connections.append((destination, time))
         
+class Route():
+    """Class route."""
+    counter = 1
+    def __init__(self, start):
+        self.id = Route.counter
+        self.route = [start]
+        self.total_time = 0
+        Route.counter += 1
+
+    def add_route(self, destination, time):
+        self.route.append(destination)
+        self.total_time += time
 

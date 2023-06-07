@@ -2,6 +2,24 @@ from import_data import stations
 import matplotlib.pyplot as plt
 import csv
 
+from station import *
+
+def Route_():
+    route = Route(stations[0])
+
+    for i in range(0,6):
+        
+        current_station = route.route[-1]
+        destinations = current_station.connections
+        first_destination = destinations[0]
+        object = first_destination[0]
+        time = first_destination[1]
+
+        route.add_route(object, time)
+    
+    return route
+
+
 def Plot():
     """give visual representation of the data"""
 
@@ -15,13 +33,17 @@ def Plot():
 
 # Plot()
 
-def Output():
+def Output(route, score):
+    names = []
+    for station in route.route:
+        names.append(station.name)
+
     with open("output.csv", 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(["train", "stations"])
-        writer.writerow(["traject","stations"])
-        # writer.writerow([train_2,"[Amsterdam Sloterdijk, Amsterdam Centraal, Amsterdam Amstel, Amsterdam Zuid, Schiphol Airport]"])
-        # writer.writerow([train_3,"[Rotterdam Alexander, Gouda, Alphen a/d Rijn, Leiden Centraal, Schiphol Airport, Amsterdam Zuid]"])
-        writer.writerow(["score", "3819"])
+        writer.writerow(["train_{}".format(route.id),f'[{", ".join(names)}]'])
+        writer.writerow(["score", "{}".format(score)])
 
-Output()
+
+route = Route_()
+Output(route, 8300)
