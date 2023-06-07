@@ -24,20 +24,19 @@ def Connecties():
         if header != None:
             for row in reader:
 
-                for station in stations:
-                    if station.station_name == row[0]:
+                for station_1 in stations:
+                    if station_1.station_name == row[0]:
 
-                        for station in stations:
-                            if station.station_name == row[1]:
-
-                                station.add_connection(station, row[2])
+                        for station_2 in stations:
+                            if station_2.station_name == row[1]:
+                                station_1.add_connection(station_2, row[2])
                 
-                for station in stations:
-                    if station.station_name == row[1]:
+                for station_1 in stations:
+                    if station_1.station_name == row[1]:
 
-                        for station in stations:
-                            if station.station_name == row[0]:
-                                station.add_connection(station, row[2])
+                        for station_2 in stations:
+                            if station_2.station_name == row[0]:
+                                station_1.add_connection(station_2, row[2])
 
     return stations
 
@@ -46,6 +45,6 @@ stations = Connecties()
 # connecties = Connecties()
 
 
-for station in stations:
-    # print(station.station_name)
-    print(station.connections[0])
+# for station in stations:
+#     # print(station.station_name)
+#     print(station.connections[0])
