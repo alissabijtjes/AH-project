@@ -9,4 +9,11 @@ class Station():
         self.station_name = station_name
         self.visited = False
         self.coordinates = (y, x)
+        self.connections = []
         Station.counter += 1
+
+    def add_connection(self, destination, time):
+        """"""
+        self.connections.append((destination, time))
+        
+
