@@ -2,7 +2,7 @@
 
 class Station():
     """Class station."""
-    counter = 0
+    counter = 1
     def __init__(self, station_name, y, x):
         """Initalize class."""
         self.station_id = Station.counter
