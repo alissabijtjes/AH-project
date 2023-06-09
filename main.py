@@ -1,8 +1,8 @@
-from .code.import_data import stations
+from code.import_data import stations
 import matplotlib.pyplot as plt
 import csv
 
-from .code.station import Station, Route
+from code.station import Station, Route
 
 def Route_():
     route = Route(stations[0])
@@ -31,7 +31,7 @@ def Plot():
     # plt.axis([4.2, 5.2, 51.5, 53.5])
     plt.show()
 
-# Plot()
+Plot()
 
 def Output(route, score):
     names = []
