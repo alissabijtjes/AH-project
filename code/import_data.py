@@ -14,8 +14,6 @@ def Stations():
     return stations
 
 
-
-
 def Connecties():
     stations = Stations()
     with open("ConnectiesHolland.csv", 'r') as g:

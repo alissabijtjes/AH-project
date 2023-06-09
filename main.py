@@ -1,8 +1,8 @@
-from import_data import stations
+from .code.import_data import stations
 import matplotlib.pyplot as plt
 import csv
 
-from station import *
+from .code.station import Station, Route
 
 def Route_():
     route = Route(stations[0])
