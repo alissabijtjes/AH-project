@@ -56,3 +56,20 @@ print(sum)
 1.2353421086674186e+58
 
 # opdracht 7
+
+1 traject:
+volgorde traject: belangrijk
+repetition traject: belangrijk
+n^r
+r = gem lengte (6)
+n = gem opties (4)
+= 4096
+
+meerdere trajecten(1 lijnvoering):
+volgorde: niet belangrijk
+repetition: niet belangrijk
+n!/(r!(n-r)!)
+r = aantal trajecten (7)
+n = een traject (4096)
+
+statespace = 7,87*10^28
