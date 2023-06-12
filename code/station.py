@@ -29,3 +29,7 @@ class Route():
         self.route.append(destination)
         self.total_time += time
 
+    def delete_route(self, destination, time):
+        self.route.remove(destination)
+        self.total_time -= time
+
