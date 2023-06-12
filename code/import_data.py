@@ -4,7 +4,7 @@ from code.station import Station
 def Stations():
     # Creates list of all stations with coordinates
     stations = []
-    with open("data/StationsNationaal.csv", 'r') as f:
+    with open("data/StationsHolland.csv", 'r') as f:
         reader = csv.reader(f)
         header = next(reader)
         if header != None:
@@ -16,7 +16,7 @@ def Stations():
 
 def Connecties():
     stations = Stations()
-    with open("data/ConnectiesNationaal.csv", 'r') as g:
+    with open("data/ConnectiesHolland.csv", 'r') as g:
         reader = csv.reader(g)
         header = next(reader)
         if header != None:

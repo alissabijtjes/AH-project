@@ -1,23 +1,22 @@
 from code.import_data import stations
 import matplotlib.pyplot as plt
 import csv
+import random
 
-from code.station import Station, Route
+from code.station import Station
+from code.route import Route
 
 
-
-djjd
 
 def Route_():
-    route = Route(stations[0])
+    route = Route(random.choice(stations))
 
     for i in range(0,6):
         
         current_station = route.route[-1]
-        destinations = current_station.connections
-        first_destination = destinations[0]
-        object = first_destination[0]
-        time = first_destination[1]
+        destination = random.choice(current_station.connections)
+        object = destination[0]
+        time = destination[1]
 
         route.add_route(object, time)
     
