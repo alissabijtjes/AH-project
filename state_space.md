@@ -73,3 +73,7 @@ r = aantal trajecten (7)
 n = een traject (4096)
 
 statespace = 7,87*10^28
+
+niet gemiddelde, max lengte traject. Herhaling belangrijk.
+
+
