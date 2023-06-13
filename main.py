@@ -41,7 +41,7 @@ def Output(route, score):
     for station in route.route:
         names.append(station.name)
 
-    with open("output.csv", 'w', newline='') as file:
+    with open("resultaten/output.csv", 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(["train", "stations"])
         writer.writerow(["train_{}".format(route.id),f'[{", ".join(names)}]'])
