@@ -14,12 +14,12 @@ class Station():
 
     def add_connection(self, destination, time):
         """"""
-        self.connections.append((destination, time, False))
+        self.connections.append([destination, time, False])
 
     def ridden_connection(self, destination):
         """Sets a connection to ridden"""
         for connection in self.connections:
             if connection[0] == destination:
-                connection[2] == True
+                connection[2] = True
 
 

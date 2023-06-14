@@ -30,18 +30,42 @@ def route_():
             break
         else:
             route.add_route(station, time)
+
+            # set connections to ridden
+            station.ridden_connection(current_station)
+            current_station.ridden_connection(station)
     
     return route
 
 def main():
 
     all_routes = []
+    Min = 0
 
     for i in range(0,7):
         route = route_()
+        Min += route.total_time
         all_routes.append(route)
 
-    return all_routes
+    T = len(all_routes)
+    P = fraction_p()
+    
+    K = P*10000 - (T*100 + Min)
+
+    return all_routes, K
+
+def fraction_p():
+
+    ridden = 0
+    total = 0
+    for station in stations:
+        for connection in station.connections:
+            total += 1
+            if connection[2]:
+                ridden += 1
+    
+    return ridden / total
+
 
 
 
@@ -75,5 +99,6 @@ def Output(routes, score):
         writer.writerow(["score", "{}".format(score)])
 
 
-total_routes = main()
-Output(total_routes, 8300)
+total_routes, K = main()
+
+Output(total_routes, K)
