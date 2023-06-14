@@ -2,7 +2,9 @@ from code.import_data import stations
 import matplotlib.pyplot as plt
 import csv
 import random
-from code.station import Station, Route
+
+from code.station import Station
+from code.route import Route
 
 
 # Only run search1() with StationHolland.csv and ConnectiesHolland.csv!.
