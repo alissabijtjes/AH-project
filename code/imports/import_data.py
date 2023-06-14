@@ -1,22 +1,19 @@
 import csv
-from code.station import Station
+from code.classes.station import Station
 
-def Stations():
-    # Creates list of all stations with coordinates
+def import_data(map):
+
     stations = []
-    with open("data/StationsHolland.csv", 'r') as f:
+    with open(f"data/Stations{map}.csv", 'r') as f:
         reader = csv.reader(f)
         header = next(reader)
         if header != None:
             for row in reader:
                 station = Station(row[0], float(row[1]), float(row[2]))
                 stations.append(station)
-    return stations
 
 
-def Connecties():
-    stations = Stations()
-    with open("data/ConnectiesHolland.csv", 'r') as g:
+    with open(f"data/Connecties{map}.csv", 'r') as g:
         reader = csv.reader(g)
         header = next(reader)
         if header != None:
@@ -37,12 +34,3 @@ def Connecties():
                                 station_1.add_connection(station_2, float(row[2]))
 
     return stations
-
-stations = Connecties()
-
-# connecties = Connecties()
-
-
-# for station in stations:
-#     # print(station.station_name)
-#     print(station.connections[0])
