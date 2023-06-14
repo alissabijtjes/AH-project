@@ -15,23 +15,47 @@ def route_(all_stations, map):
         max_allowed_time = 120
 
     # Creates route object with random start point
-    route = Route(random.choice(all_stations))
+    start_point = random.choice(all_stations)
+    i = 0
+    while start_point.visited:
+        i += 1
+        start_point = random.choice(all_stations)
+        if i > 50:
+            break
+        
+
+    route = Route(start_point)
+
 
     # Loop until total time is less than two hours
-    while route.total_time < 120:
+    while route.total_time < max_allowed_time:
         
         # Set current station als last station in list
         current_station = route.route[-1]
 
         # Choose random next destination
-        destination = random.choice(current_station.connections)
+        # destination = random.choice(current_station.connections)
+
+        destination = None
+
+        for connection in current_station.connections:
+            # print(connection[0].name)
+            if connection[0].visited == False:
+                # print(connection[0].name)
+                destination = connection
+                
+        if destination == None:
+            destination = random.choice(current_station.connections)
+
         station = destination[0]
         time = destination[1]
 
         # Stop if time would be exceeded 
         if route.total_time + time > max_allowed_time:
             break
+
         else:
+            station.set_visited()
             route.add_route(station, time)
 
             # Set connections to ridden

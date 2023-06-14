@@ -23,4 +23,7 @@ class Station():
             if connection[0] == destination:
                 connection[2] = True
 
+    def set_visited(self):
+        """Sets station to visitid"""
+        self.visited = True
 
