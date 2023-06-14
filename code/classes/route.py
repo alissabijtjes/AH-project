@@ -1,6 +1,7 @@
 """Route class."""
 class Route():
     """Class route."""
+
     counter = 1
     def __init__(self, start):
         self.id = Route.counter

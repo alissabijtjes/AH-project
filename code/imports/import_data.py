@@ -2,7 +2,9 @@ import csv
 from code.classes.station import Station
 
 def import_data(map):
+    """Import stations and connecties from given map (Holland or Nationaal)."""
 
+    # Import stations
     stations = []
     with open(f"data/Stations{map}.csv", 'r') as f:
         reader = csv.reader(f)
@@ -12,7 +14,7 @@ def import_data(map):
                 station = Station(row[0], float(row[1]), float(row[2]))
                 stations.append(station)
 
-
+    # Add connections
     with open(f"data/Connecties{map}.csv", 'r') as g:
         reader = csv.reader(g)
         header = next(reader)
