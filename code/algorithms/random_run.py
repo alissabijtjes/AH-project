@@ -16,12 +16,12 @@ def route_(all_stations, map):
 
     # Creates route object with random start point
     start_point = random.choice(all_stations)
-    i = 0
-    while start_point.visited:
-        i += 1
-        start_point = random.choice(all_stations)
-        if i > 50:
-            break
+    # i = 0
+    # while start_point.visited:
+    #     i += 1
+    #     start_point = random.choice(all_stations)
+    #     if i > 50:
+    #         break
         
 
     route = Route(start_point)
@@ -34,18 +34,18 @@ def route_(all_stations, map):
         current_station = route.route[-1]
 
         # Choose random next destination
-        # destination = random.choice(current_station.connections)
+        destination = random.choice(current_station.connections)
 
-        destination = None
+        # destination = None
 
-        for connection in current_station.connections:
-            # print(connection[0].name)
-            if connection[0].visited == False:
-                # print(connection[0].name)
-                destination = connection
+        # for connection in current_station.connections:
+        #     # print(connection[0].name)
+        #     if connection[0].visited == False:
+        #         # print(connection[0].name)
+        #         destination = connection
                 
-        if destination == None:
-            destination = random.choice(current_station.connections)
+        # if destination == None:
+        #     destination = random.choice(current_station.connections)
 
         station = destination[0]
         time = destination[1]
