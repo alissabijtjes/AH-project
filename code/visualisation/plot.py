@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
-import matplotlib.animation as animation
+from matplotlib.animation import FuncAnimation
+from random import randrange
 
 def plot(map):
     """give visual representation of the data"""
@@ -13,8 +14,6 @@ def plot(map):
     plt.show()
 
 def plot_(routes, map):
-    
-    fig = plt.figure()
 
     color=["grey", "black", "pink", "yellow", "green", "red", "blue"]
     l = 0
@@ -36,5 +35,33 @@ def plot_(routes, map):
         l += 1
     plt.show()
 
+def live_plot(route, map):
+    
+    fig = plt.figure()
+    for station in map:
+        plt.plot(station.coordinates[1], station.coordinates[0], 'bo')
 
-    # plt.show()
+
+    # for route in routes:
+    x = [route.route[0].coordinates[1]]
+    y = [route.route[0].coordinates[0]]
+
+    ln, = plt.plot(x,y, '-')
+    
+
+    plt.axis([3.5, 7, 50.5, 53.5])
+    
+    i = 0
+    def update(i):
+        x.append(route.route[i].coordinates[1])
+        y.append(route.route[i].coordinates[0])
+
+        ln.set_data(x,y)
+
+        i += 1
+        return ln,
+
+    animation = FuncAnimation(fig, update, interval=500)
+
+    plt.show()
+

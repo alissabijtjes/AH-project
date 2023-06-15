@@ -33,16 +33,21 @@ map = "Nationaal"
 # Run greedy algoritm
 # routes, K = greedy.complete_run(map)
 # random_run.output(routes, K)
+
+
 K_list = []
 for i in range(1):
     routes, K = greedy.complete_run(map)
     K_list.append(K)
-random_run.output(routes, K)
+# random_run.output(routes, K)
 
-print(max(K_list))
+# print(max(K_list))
 
 
 
 # Plots all stations with connections
 all_stations = import_data.import_data(map)
-plot.plot_(routes, all_stations)
+# plot.plot_(routes, all_stations)
+
+for route in routes:
+    plot.live_plot(route, all_stations)
