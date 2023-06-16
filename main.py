@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 # Set which data to use ("Nationaal" or "Holland")
 map = "Nationaal"
 
-# Use random algorithm
+# ------------- Run random algorithm -----------
 # K_list = []
 # for i in range(1000):
 #     routes, K = random.random_algorithm(map)
@@ -31,7 +31,7 @@ map = "Nationaal"
 # print(max(K_list))
 # print(min(K_list))
 
-# Run greedy algoritm
+# ----------- Run greedy algoritm -----------
 # routes, K = greedy.complete_run(map)
 # random_run.output(routes, K)
 
@@ -44,13 +44,17 @@ map = "Nationaal"
 
 # print(max(K_list))
 
+
+# ----------- Run hillclimber algorithm -------
 K_list = []
 new_all_routes, copy_all_stations, all_stations, var_min, current_k = hillclimber.initial_hillclimber(map)
 for i in range(1000):
-    routes, K = hillclimber.hillclimber(map, new_all_routes, copy_all_stations, all_stations, var_min, current_k)
-#print("first k", current_k)
-#print("best k", K)
-random_run.output(new_all_routes, K)
+    routes, current_k, var_min = hillclimber.hillclimber(map, new_all_routes, copy_all_stations, all_stations, var_min, current_k)
+    K_list.append(current_k)
+print(K_list)
+print(min(K_list))
+print(max(K_list))
+random_run.output(routes, current_k)
 
 
 
