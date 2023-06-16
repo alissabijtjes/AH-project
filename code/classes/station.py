@@ -24,6 +24,6 @@ class Station():
                 connection[2] = True
 
     def set_visited(self):
-        """Sets station to visitid"""
+        """Sets station to visited"""
         self.visited = True
 
