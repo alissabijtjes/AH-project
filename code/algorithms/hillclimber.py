@@ -1,6 +1,6 @@
 """Hillclimber file."""
 
-from code.algorithms import random as rand
+from code.algorithms import random_run
 from code.imports import import_data
 import random
 from code.classes.route import Route
@@ -16,7 +16,7 @@ def initial_hillclimber(map):
     copy_all_stations = copy.deepcopy(all_stations)
 
     # Initial state hill climbing
-    all_routes, first_k = rand.random_algorithm(map)
+    all_routes, first_k = random_run.random_algorithm(map)
     #print("first k", first_k)
 
     new_all_routes = []
@@ -52,7 +52,7 @@ def hillclimber(map, new_all_routes, copy_all_stations, all_stations, var_min, c
                         station.connections = list_item.connections
 
     # new random route
-    new_route = rand.route_(all_stations, map)
+    new_route = random_run.route_(all_stations, map)
     min_new_route = new_route.total_time
 
     # op plek van current route de nieuwe route
@@ -61,7 +61,7 @@ def hillclimber(map, new_all_routes, copy_all_stations, all_stations, var_min, c
     # Variabels calculation
     var_t = len(new_all_routes)
     #print("t-waarde", var_t)
-    var_p = rand.fraction_p(copy_all_stations)
+    var_p = random_run.fraction_p(copy_all_stations)
     #print("p-waarde", var_p) 
     var_min_totaal = (var_min - min_current_route) + min_new_route
     #print("min-waarde", var_min_totaal)
