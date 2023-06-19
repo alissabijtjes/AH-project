@@ -1,0 +1,18 @@
+case 2 min
+- wat is het probleem
+- terminologie
+- wat is een oplossing
+
+state space 1 min
+-  
+
+methode 2-3 min
+- algoritmes die gedaan zijn en toegepast op case
+
+resultaten 3 min
+- vergelijken
+
+conclusie 1-2 min
+- oplossing case
+- inzichten in algoritmen en case --> future work
+

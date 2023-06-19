@@ -20,7 +20,7 @@ class Station():
     def ridden_connection(self, destination):
         """Sets a connection to ridden."""
         for connection in self.connections:
-            if connection[0] == destination:
+            if connection[0].name == destination.name:
                 connection[2] = True
 
     def set_visited(self):
