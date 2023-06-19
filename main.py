@@ -36,33 +36,34 @@ map = "Nationaal"
 # random_run.output(routes, K)
 
 
-#K_list = []
-#for i in range(1):
-#    routes, K = greedy.complete_run(map)
-#    K_list.append(K)
-# random_run.output(routes, K)
+K_list = []
+for i in range(1):
+   routes, K = greedy.complete_run(map)
+   K_list.append(K)
+random_run.output(routes, K)
 
 # print(max(K_list))
 
 
 # ----------- Run hillclimber algorithm -------
-K_list = []
-new_all_routes, copy_all_stations, all_stations, var_min, current_k = hillclimber.initial_hillclimber(map)
-for i in range(1000):
-    routes, current_k, var_min = hillclimber.hillclimber(map, new_all_routes, copy_all_stations, all_stations, var_min, current_k)
-    K_list.append(current_k)
-print(K_list)
-print(min(K_list))
-print(max(K_list))
-random_run.output(routes, current_k)
+# K_list = []
+# new_all_routes, copy_all_stations, all_stations, var_min, current_k = hillclimber.initial_hillclimber(map)
+# for i in range(1000):
+#     routes, current_k, var_min = hillclimber.hillclimber(map, new_all_routes, copy_all_stations, all_stations, var_min, current_k)
+#     K_list.append(current_k)
+# print(K_list)
+# print(min(K_list))
+# print(max(K_list))
+# random_run.output(routes, current_k)
 
 
 
 
 
 # Plots all stations with connections
-#all_stations = import_data.import_data(map)
+all_stations = import_data.import_data(map)
 # plot.plot_(routes, all_stations)
+# plot.plot(all_stations)
 
-#for route in routes:
-#    plot.live_plot(route, all_stations)
+for route in routes:
+   plot.live_plot(route, all_stations)

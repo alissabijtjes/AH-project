@@ -61,18 +61,43 @@ print(sum)
 volgorde traject: belangrijk
 repetition traject: belangrijk
 n^r
+
+Holland:
 r = gem lengte (6)
 n = gem opties (4)
 = 4096
+
+Nationaal:
+bovengrens:
+r = 30
+n = 9
+9^30 = 4 x 10^28
+
+gemiddeld:
+gem tijd = 25.43
+r = 180 / 25.43 = 7.08
+n = 2.92
+2.92^7.08 = 1972
 
 meerdere trajecten(1 lijnvoering):
 volgorde: niet belangrijk
 repetition: niet belangrijk
 n!/(r!(n-r)!)
+
+Holland:
 r = aantal trajecten (7)
 n = een traject (4096)
 
-statespace = 7,87*10^28
+nationaal:
+r = aantal trajecten (20)
+n = een traject (10^28) bovengrens
+n = een traject (1972) gem
+
+statespace gem holland = 7,87*10^28
+
+statespace gem nationaal = ~10^47
+
+statespace bovengrens nationaal = ~10^239
 
 niet gemiddelde, max lengte traject. Herhaling belangrijk.
 
