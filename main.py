@@ -4,9 +4,10 @@ from code.visualisation import plot
 from code.algorithms import greedy
 from code.algorithms import hillclimber
 import matplotlib.pyplot as plt
+from resultaten.write_results import write_results
 
 # Set which data to use ("Nationaal" or "Holland")
-map = "Holland"
+map = "Nationaal"
 
 # ------------- Run random algorithm -----------
 # K_list = []
@@ -47,13 +48,17 @@ map = "Holland"
 
 # ----------- Run hillclimber algorithm -------
 K_list = []
+all_lists_values = []
 original_all_routes, copy_all_stations, all_stations, var_min, current_k = hillclimber.initial_hillclimber(map)
-for i in range(10):
-    routes, current_k, var_min = hillclimber.hillclimber(map, original_all_routes, copy_all_stations, all_stations, var_min, current_k)
+for i in range(5):
+    routes, current_k, var_min, values_list = hillclimber.hillclimber(map, original_all_routes, copy_all_stations, all_stations, var_min, current_k)
     K_list.append(current_k)
+    all_lists_values.append(values_list)
+
 # print(K_list)
 # print(min(K_list))
 # print(max(K_list))
+write_results(all_lists_values)
 random_run.output(routes, current_k)
 
 

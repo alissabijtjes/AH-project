@@ -7,6 +7,7 @@ import random
 from code.classes.route import Route
 from code.classes.station import Station
 import copy
+from resultaten.write_results import write_results
 
 # optie heuristiek: laatste station weghalen (bv. Alkmaar-Den Helder-Alkmaar)
 
@@ -17,8 +18,8 @@ def initial_hillclimber(map):
     copy_all_stations = copy.deepcopy(all_stations)
 
     # Initial state hill climbing
-    #all_routes, first_k = random_run.random_algorithm(map)
-    all_routes, first_k = greedy.complete_run(map)
+    all_routes, first_k = random_run.random_algorithm(map)
+    #all_routes, first_k = greedy.complete_run(map)
 
     original_all_routes = []
     # new_all_routes is in begin the random solution
@@ -54,12 +55,10 @@ def hillclimber(map, original_all_routes, copy_all_stations, all_stations, var_m
                     start_station = station
                     new_route = Route(start_station)
                     station.set_visited()
+    
 
-
-            # next_station_index = 1
             for i in range(0, len(route.route) - 1):
                 route_station = route.route[i]
-            # for route_station in route.route:
 
                 for station in copy_all_stations:
                     if station.name == route_station.name:
@@ -69,17 +68,13 @@ def hillclimber(map, original_all_routes, copy_all_stations, all_stations, var_m
                                 station = destination[0]
                                 time = destination[1]
                                 station.set_visited()
-                                route.add_route(station, time)
-                                # connection[2] = True
+                                new_route.add_route(station, time)
                                 # Set connections to ridden
                                 station.ridden_connection(route_station)
                                 route_station.ridden_connection(station)
 
 
                         # station.connections = route_station.connections
-
-                # next_station_index += 1
-
 
     # # Set every connection to false
     # for station in copy_all_stations:
@@ -99,19 +94,11 @@ def hillclimber(map, original_all_routes, copy_all_stations, all_stations, var_m
     #                 if station.name == current_station.name:
     #                     for connection in station.connections:
     #                         if connection[0].name == next_station.name:
-    #                             connection[2] = True
-
-    # for station in copy_all_stations:
-    #     for connection in station.connections: 
-    #         print(connection[2])                      
-
-
-
-
+    #                             connection[2] = True                    
 
     # new random route
     new_route = random_run.route_(copy_all_stations, map)
-    #new_route = greedy.greedy(all_stations, map)
+    #new_route = greedy.greedy(copy_all_stations, map)
     min_new_route = new_route.total_time
 
     # op plek van current route de nieuwe route
@@ -119,8 +106,12 @@ def hillclimber(map, original_all_routes, copy_all_stations, all_stations, var_m
     # print(index)
     # print(new_route)
     # original_all_routes[index] = new_route
-    new_all_routes = original_all_routes
+    new_all_routes = copy.deepcopy(original_all_routes)
     new_all_routes[index] = new_route
+
+    var_min_new = 0
+    for route in new_all_routes:
+        var_min_new += route.total_time
 
 
     # Variabels calculation
@@ -128,22 +119,19 @@ def hillclimber(map, original_all_routes, copy_all_stations, all_stations, var_m
     #print("t-waarde", var_t)
     var_p = random_run.fraction_p(copy_all_stations)
     #print("p-waarde", var_p) 
-    #print(var_min_first)
-    print(min_current_route)
-    var_min_totaal = (var_min_first - min_current_route) + min_new_route
+    var_min_totaal = var_min_new
+    #var_min_totaal = var_min_first - min_current_route + min_new_route
     #print("min-waarde", var_min_totaal)
     var_k = var_p * 10000 - (var_t * 100 + var_min_totaal)
     print("k-waarde", var_k)
-    #print("current k", current_k)
+    print("current k", current_k)
 
     # wel alle stations ook bereikt
     if var_k > current_k:
         original_all_routes = new_all_routes
         current_k = var_k
         var_min = var_min_totaal
-        #print("nieuwe hoger dan oude")
-    # else:
-    #     original_all_routes[index] = random_current_route
-    #     #print("blijft hetzelfde")
 
-    return original_all_routes, current_k, var_min
+    values_list = [var_p, var_t, var_min, current_k]
+
+    return original_all_routes, current_k, var_min, values_list
