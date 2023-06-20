@@ -50,7 +50,7 @@ map = "Nationaal"
 K_list = []
 all_lists_values = []
 original_all_routes, copy_all_stations, all_stations, var_min, current_k = hillclimber.initial_hillclimber(map)
-for i in range(1000000):
+for i in range(100000):
     routes, current_k, var_min, values_list = hillclimber.hillclimber(map, original_all_routes, copy_all_stations, all_stations, var_min, current_k)
     K_list.append(current_k)
     all_lists_values.append(values_list)
