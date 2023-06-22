@@ -57,14 +57,8 @@ def greedy(all_stations, map):
         # Set current station als last station in list
         current_station = route.route[-1]
 
-        destination = None
-
-        # Set destination to station that has not been visited
-        for connection in current_station.connections:
-            if connection[0].visited == False:
-                destination = connection
-                break
-                
+        destination = None 
+        
         # If all stations are visited, set destination to station with not ridden connection
         if destination == None:
             for connection in current_station.connections:
@@ -87,6 +81,7 @@ def greedy(all_stations, map):
 
         # else, set destination random(could later be improved)
         if destination == None:
+            break
             destination = random.choice(current_station.connections)
 
         station = destination[0]

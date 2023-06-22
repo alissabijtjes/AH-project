@@ -5,16 +5,17 @@ from code.algorithms import greedy
 from code.algorithms import hillclimber
 import matplotlib.pyplot as plt
 from resultaten.write_results import write_results, plot_results
+# import statisti
 
 # Set which data to use ("Nationaal" or "Holland")
 map = "Nationaal"
 
 # ------------- Run random algorithm -----------
 # K_list = []
-# for i in range(1000):
-#     routes, K = random.random_algorithm(map)
+# for i in range(10000):
+#     routes, K = random_run.random_algorithm(map)
 #     K_list.append(K)
-# random.output(routes, K)
+# random_run.output(routes, K)
 
 # for station in routes[0].route:
 #     print(station.name)
@@ -44,6 +45,7 @@ for i in range(1):
 random_run.output(routes, K)
 
 # print(max(K_list))
+# print(K_list)
 
 
 # ----------- Run hillclimber algorithm -------
@@ -56,20 +58,22 @@ random_run.output(routes, K)
 # print(min(K_list))
 # print(max(K_list))
 # random_run.output(routes, current_k)
-K_list = []
-all_lists_values = []
-original_all_routes, copy_all_stations, all_stations, var_min, current_k = hillclimber.initial_hillclimber(map)
-for i in range(100000):
-    routes, current_k, var_min, values_list = hillclimber.hillclimber(map, original_all_routes, copy_all_stations, all_stations, var_min, current_k)
-    K_list.append(current_k)
-    all_lists_values.append(values_list)
+
+
+# K_list = []
+# all_lists_values = []
+# original_all_routes, copy_all_stations, all_stations, var_min, current_k = hillclimber.initial_hillclimber(map)
+# for i in range(100000):
+#     routes, current_k, var_min, values_list = hillclimber.hillclimber(map, original_all_routes, copy_all_stations, all_stations, var_min, current_k)
+#     K_list.append(current_k)
+#     all_lists_values.append(values_list)
 
 # print(K_list)
 # print(min(K_list))
 # print(max(K_list))
-write_results(all_lists_values)
+# write_results(all_lists_values)
 #plot_results(all_lists_values)
-random_run.output(routes, current_k)
+# random_run.output(routes, current_k)
 
 
 
@@ -77,8 +81,8 @@ random_run.output(routes, current_k)
 
 # Plots all stations with connections
 all_stations = import_data.import_data(map)
-# plot.plot_(routes, all_stations)
+plot.plot_routes(routes, all_stations)
 # plot.plot(all_stations)
 
-for route in routes:
-   plot.live_plot(route, all_stations)
+# for route in routes:
+#    plot.live_plot(route, all_stations)
