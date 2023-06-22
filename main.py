@@ -58,9 +58,9 @@ random_run.output(routes, K)
 # random_run.output(routes, current_k)
 K_list = []
 all_lists_values = []
-original_all_routes, copy_all_stations, all_stations, var_min, current_k = hillclimber.initial_hillclimber(map)
-for i in range(100000):
-    routes, current_k, var_min, values_list = hillclimber.hillclimber(map, original_all_routes, copy_all_stations, all_stations, var_min, current_k)
+original_all_routes, copy_all_stations, var_min, current_k = hillclimber.initial_hillclimber(map)
+for i in range(5):
+    routes, current_k, var_min, values_list = hillclimber.hillclimber(map, original_all_routes, copy_all_stations, var_min, current_k)
     K_list.append(current_k)
     all_lists_values.append(values_list)
 
@@ -80,5 +80,5 @@ all_stations = import_data.import_data(map)
 # plot.plot_(routes, all_stations)
 # plot.plot(all_stations)
 
-for route in routes:
-   plot.live_plot(route, all_stations)
+# for route in routes:
+#   plot.live_plot(route, all_stations)
