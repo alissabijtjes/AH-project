@@ -2,6 +2,7 @@ import csv
 import random
 
 from code.imports.import_data import import_data
+from code.helper import score_function
 from code.classes.route import Route
 
 def route_(all_stations, map):
@@ -65,44 +66,22 @@ def route_(all_stations, map):
     return route
 
 
-def fraction_p(all_stations):
-    """Calculates the fraction of ridden connections."""
+# def fraction_p(all_stations):
+#     """Calculates the fraction of ridden connections."""
 
-    ridden = 0
-    total = 0
+#     ridden = 0
+#     total = 0
 
-    # Loops over all stations
-    for station in all_stations:
+#     # Loops over all stations
+#     for station in all_stations:
 
-        # Loops over all connection for every station and check if station in ridden
-        for connection in station.connections:
-            total += 1
-            if connection[2]:
-                ridden += 1
+#         # Loops over all connection for every station and check if station in ridden
+#         for connection in station.connections:
+#             total += 1
+#             if connection[2]:
+#                 ridden += 1
     
-    return ridden / total
-
-
-def output(routes, score):
-    """Generates output in uniform format."""
-
-    # Create list with all station names
-    station_names = []
-    for route in routes:
-        name_list = []
-        for station in route.route:
-            name_list.append(station.name)
-        station_names.append((name_list, route.id))
-
-    # Creates output in output file in folder resultaten
-    with open("resultaten/output.csv", 'w', newline='') as file:
-        writer = csv.writer(file)
-        writer.writerow(["train", "stations"])
-
-        for names in station_names:
-            writer.writerow(["train_{}".format(names[1]),f'[{", ".join(names[0])}]'])
-
-        writer.writerow(["score", "{}".format(score)])
+#     return ridden / total
 
 
 def random_algorithm(map):
@@ -127,7 +106,7 @@ def random_algorithm(map):
 
     # Calculate K-value (score)
     T = len(all_routes)
-    P = fraction_p(all_stations)
-    K = P*10000 - (T*100 + Min)
+    P = score_function.fraction_p(all_stations)
+    K = score_function.calculate_var_k(P, T, Min)
 
     return all_routes, K

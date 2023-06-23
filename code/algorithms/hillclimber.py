@@ -4,7 +4,7 @@ from code.algorithms import random_run
 from code.algorithms import greedy
 from code.imports import import_data
 from code.classes.route import Route
-from code.helper.helper import Compare_routes, Longest_route
+from code.helper import score_function
 import random
 import copy
 
@@ -31,12 +31,11 @@ def initial_hillclimber(map, start_algorithm):
     return original_all_routes, copy_all_stations, var_min, first_k
 
 
-def hillclimber(map, original_all_routes, copy_all_stations, var_min, current_k):
+def hillclimber(map, route_heuristic, original_all_routes, copy_all_stations, var_min, current_k):
     
     # Get index from random route from all routes
     random_current_route = random.choice(original_all_routes)
     index = original_all_routes.index(random_current_route)
-    print("random", index)
 
     new_all_routes = []
 
@@ -72,12 +71,15 @@ def hillclimber(map, original_all_routes, copy_all_stations, var_min, current_k)
                                 break                         
     
     # Variabel p before adding new route
-    original_var_p = random_run.fraction_p(copy_all_stations)
+    original_var_p = score_function.fraction_p(copy_all_stations)
 
-    # New route
-    #new_route = random_run.route_(copy_all_stations, map)
-    #new_route = greedy.greedy(copy_all_stations, map)
-    new_route = hillclimber_new_route(copy_all_stations, map)
+    # Generates new route, whether random, greedy or hillclimber heuristic is chosen
+    if route_heuristic == "random":
+        new_route = random_run.route_(copy_all_stations, map)
+    if route_heuristic == "greedy":
+        new_route = greedy.greedy(copy_all_stations, map)
+    if route_heuristic == "hillclimber":
+        new_route = hillclimber_new_route(copy_all_stations, map)
 
     new_all_routes = copy.deepcopy(original_all_routes)
     new_all_routes[index] = new_route
@@ -88,13 +90,9 @@ def hillclimber(map, original_all_routes, copy_all_stations, var_min, current_k)
 
     # Variabels calculation
     var_t = len(new_all_routes)
-    var_p = random_run.fraction_p(copy_all_stations)
-    print("var_p", var_p)
+    var_p = score_function.fraction_p(copy_all_stations)
     var_min_totaal = var_min_new
-    #print("min-waarde", var_min_totaal)
-    var_k = var_p * 10000 - (var_t * 100 + var_min_totaal)
-    print("k-waarde", var_k)
-    print("current k", current_k)
+    var_k = score_function.calculate_var_k(var_p, var_t, var_min_totaal)
 
     # Compare current k-value with new k-value
     if var_k > current_k:

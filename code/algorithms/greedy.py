@@ -3,7 +3,7 @@ import random
 
 from code.imports.import_data import import_data
 from code.classes.route import Route
-from code.algorithms import random_run
+from code.helper import score_function
 
 def my_Func(all_stations):
     """funtion to sort stations by their number of connections"""
@@ -118,7 +118,7 @@ def complete_run(map):
 
     # Create the routes
     for i in range(0, max_routes):
-        P = random_run.fraction_p(all_stations)
+        P = score_function.fraction_p(all_stations)
 
         # Stop running if all connections are ridden
         if P == 1:
@@ -132,6 +132,6 @@ def complete_run(map):
 
     # Calculate K-value (score)
     T = len(all_routes)
-    K = P*10000 - (T*100 + Min)
+    K = score_function.calculate_var_k(P, T, Min)
 
     return all_routes, K
