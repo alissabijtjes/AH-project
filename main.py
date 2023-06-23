@@ -6,6 +6,10 @@ from code.algorithms import hillclimber
 from code.helper import output
 import matplotlib.pyplot as plt
 from resultaten.write_results import write_results, plot_results
+
+import subprocess
+import time
+from experiments.random_experiment import experiment_random
 # import statisti
 
 # Set which data to use ("Nationaal" or "Holland")
@@ -22,7 +26,6 @@ map = "Holland"
 #     print(station.name)
 
 # print(routes[0].total_time)
-
 
 
 
@@ -81,3 +84,9 @@ all_stations = import_data.import_data(map)
 
 # for route in routes:
 #   plot.live_plot(route, all_stations)
+
+
+#-------------Experiments------------
+
+experiment_random(map)
+
