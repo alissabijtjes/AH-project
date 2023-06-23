@@ -3,23 +3,26 @@
 from code.algorithms import random_run
 from code.algorithms import greedy
 from code.imports import import_data
-import random
 from code.classes.route import Route
+from code.helper.helper import Compare_routes, Longest_route
+import random
 import copy
 
 
-def initial_hillclimber(map):
+def initial_hillclimber(map, start_algorithm):
 
-    # alle connections (all_stations en copy_all_stations) zijn hier False
+    # Importing all stations from map
     all_stations = import_data.import_data(map)
     copy_all_stations = copy.deepcopy(all_stations)
 
     # Initial state hill climbing
-    all_routes, first_k = random_run.random_algorithm(map)
-    #all_routes, first_k = greedy.complete_run(map)
+    if start_algorithm == "random":
+        all_routes, first_k = random_run.random_algorithm(map)
+    if start_algorithm == "greedy":
+        all_routes, first_k = greedy.complete_run(map)
 
+    # Create new list for storage of all routes
     original_all_routes = []
-    # new_all_routes is in begin the random solution
     var_min = 0
     for route in all_routes:
         var_min += route.total_time
@@ -29,25 +32,11 @@ def initial_hillclimber(map):
 
 
 def hillclimber(map, original_all_routes, copy_all_stations, var_min, current_k):
-
-    # Compare route based on double connections
-    selected_route = compare_routes(original_all_routes)
-    longest_route, max_time = get_longest_route(original_all_routes)
-    print(max_time)
-    if selected_route is not None:
-        delete_route_index = original_all_routes.index(selected_route)
-        del original_all_routes[delete_route_index]
-        print("select", delete_route_index)
-
-    # Get index from longest route from all routes
-    if max_time == 180.0:
-        index = original_all_routes.index(longest_route)
-        print("max_time")
-    else:
-        # Get index from random route from all routes
-        random_current_route = random.choice(original_all_routes)
-        index = original_all_routes.index(random_current_route)
-        print("random", index)
+    
+    # Get index from random route from all routes
+    random_current_route = random.choice(original_all_routes)
+    index = original_all_routes.index(random_current_route)
+    print("random", index)
 
     new_all_routes = []
 
@@ -183,58 +172,3 @@ def hillclimber_new_route(copy_all_stations, map):
             current_station.ridden_connection(station)
     
     return route
-
-
-def compare_routes(original_all_routes):
-    selected_route = None
-
-    for route1 in original_all_routes:
-        for route2 in original_all_routes:
-            if route1 != route2 and compare_two_routes(route1, route2):
-                selected_route = route1
-                break
-
-    return selected_route
-
-
-def compare_two_routes(route1, route2, min_common_connections=5):
-    """
-    Compare two routes to check if they have at least min_common_stations in common.
-    """
-
-    connections1 = set(get_ridden_connections(route1))
-    connections2 = set(get_ridden_connections(route2))
-
-    common_connections = connections1.intersection(connections2)
-    #print(common_connections)
-
-    return len(common_connections) >= min_common_connections
-
-
-def get_ridden_connections(route):
-    """
-    Get a list of ridden connections between stations in the route.
-    """
-    ridden_connections = []
-
-    for i in range(len(route.route) - 1):
-        current_station = route.route[i]
-        next_station = route.route[i + 1]
-
-        for connection in current_station.connections:
-            if connection[0] == next_station:
-                ridden_connections.append(tuple(connection))
-
-    return tuple(ridden_connections)
-
-
-def get_longest_route(routes):
-    longest_route = None
-    max_time = -1
-
-    for route in routes:
-        if route.total_time > max_time:
-            longest_route = route
-            max_time = route.total_time
-
-    return longest_route, max_time
