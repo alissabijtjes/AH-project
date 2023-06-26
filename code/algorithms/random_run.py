@@ -94,6 +94,7 @@ def random_algorithm(map):
     # Set correct value for maximum train routes
     if map == "Nationaal":
         max_routes = 20
+        max_routes = random.randint(1,20)
 
     if map == "Holland":
         max_routes = 7
