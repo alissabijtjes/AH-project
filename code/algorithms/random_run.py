@@ -84,7 +84,7 @@ def route_(all_stations, map):
 #     return ridden / total
 
 
-def random_algorithm(map):
+def random_algorithm(map, max_routes):
     """Produces random solution with given map."""
 
     all_routes = []
@@ -92,11 +92,13 @@ def random_algorithm(map):
     all_stations = import_data(map)
     
     # Set correct value for maximum train routes
-    if map == "Nationaal":
-        max_routes = 20
+    # if map == "Nationaal":
+    #     max_routes = 20
 
-    if map == "Holland":
-        max_routes = 7
+    # if map == "Holland":
+    #     max_routes = 7
+
+    # max_routes = 18
 
     # Create the routes
     for i in range(0, max_routes):

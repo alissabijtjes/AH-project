@@ -9,7 +9,7 @@ import random
 import copy
 
 
-def initial_hillclimber(map, start_algorithm):
+def initial_hillclimber(map, start_algorithm, max_routes):
 
     # Importing all stations from map
     all_stations = import_data.import_data(map)
@@ -17,7 +17,7 @@ def initial_hillclimber(map, start_algorithm):
 
     # Initial state hill climbing
     if start_algorithm == "random":
-        all_routes, first_k = random_run.random_algorithm(map)
+        all_routes, first_k = random_run.random_algorithm(map, max_routes)
     if start_algorithm == "greedy":
         all_routes, first_k = greedy.complete_run(map)
 
@@ -118,6 +118,7 @@ def hillclimber_new_route(copy_all_stations, map):
         max_allowed_time = 120
 
     start_point = None
+
     for station in copy_all_stations:
         if station.visited == False:
             start_point = station
@@ -125,7 +126,8 @@ def hillclimber_new_route(copy_all_stations, map):
             break
 
     # Creates route object with random start point
-    start_point = random.choice(copy_all_stations)
+    if start_point == None:
+        start_point = random.choice(copy_all_stations)
 
     route = Route(start_point)
 
@@ -137,18 +139,11 @@ def hillclimber_new_route(copy_all_stations, map):
 
         destination = None
 
-        # Set destination to station that has not been visited
+        # If all stations are visited, set destination to station with not ridden connection
         for connection in current_station.connections:
-            if connection[0].visited == False:
+            if connection[2] == False:
                 destination = connection
                 break
-        
-        # If all stations are visited, set destination to station with not ridden connection
-        if destination == None:
-            for connection in current_station.connections:
-                if connection[2] == False:
-                    destination = connection
-                    break
 
         # Choose random next destination
         if destination is None:

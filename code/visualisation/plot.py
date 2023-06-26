@@ -21,7 +21,7 @@ def plot_routes(routes, map):
     """Plots all routes"""
 
     # List of colors for the different routes
-    color = ["grey", "black", "pink", "yellow", "green", "red", "blue", "purple", "lightblue", "lightgreen", "brown", "olive", "cyan", "darkblue", "darkyellow", "darkgreen"]
+    color = ["grey", "black", "pink", "yellow", "green", "red", "blue", "purple", "lightblue", "lightgreen", "brown", "olive", "cyan", "darkblue", "darkgreen", "gold"]
     j = 0
 
     # Plot all stations
