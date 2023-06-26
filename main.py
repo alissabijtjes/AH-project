@@ -11,7 +11,6 @@ import subprocess
 import time
 from code.experiments.random_experiment import experiment_random
 from code.experiments.hillclimber_experiment import experiment_hillclimber
-# import statisti
 
 # Set which data to use ("Nationaal" or "Holland")
 map = "Nationaal"
@@ -44,9 +43,11 @@ map = "Nationaal"
 # print(min(K_list))
 
 # ----------- Run greedy algoritm -----------
-# routes, K = greedy.complete_run(map)
+# routes, K, all_stations = greedy.complete_run(map)
 # output.output(routes, K)
-
+# routes, K = greedy.greedy_12(map)
+# routes, K = greedy.greedy_11(map)
+# output.output(routes, K)
 
 # K_list = []
 # for i in range(1):
@@ -60,9 +61,9 @@ map = "Nationaal"
 
 # ----------- Run hillclimber algorithm -------
 # Choose start solution for hillclimber ("greedy" or "random")
-# start_algorithm = "random"
+# start_algorithm = "greedy"
 # # Choose heuristic for generating new route ("random", "greedy", "hillclimber") (when choosing greedy+greedy, see greedy algorithm)
-# route_heuristic = "hillclimber"
+# route_heuristic = "random"
 
 # K_list = []
 # iterations = []
@@ -81,7 +82,7 @@ map = "Nationaal"
 # plt.plot(iterations, K_list)
 # plt.show()
 # plot_results(all_lists_values)
-#output.output(routes, current_k)
+# output.output(routes, current_k)
 
 
 

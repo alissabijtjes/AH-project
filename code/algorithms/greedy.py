@@ -48,6 +48,7 @@ def greedy(all_stations, map):
             if stop:
                 break
         
+
     route = Route(start_point)
 
 
@@ -133,5 +134,60 @@ def complete_run(map):
     # Calculate K-value (score)
     T = len(all_routes)
     K = score_function.calculate_var_k(P, T, Min)
+
+    return all_routes, K, all_stations
+
+def greedy_12(map):
+    all_routes, K, all_stations = complete_run(map)
+
+    
+    remove = []
+    min = 0
+    for i in range(len(all_routes)):
+
+        if len(all_routes[i].route) == 2:
+            all_routes[i].route[0].unridden_connection(all_routes[i].route[1])
+            all_routes[i].route[1].unridden_connection(all_routes[i].route[0])
+            remove.append(i)
+            break
+
+    remove.reverse()  
+
+    for i in remove:
+        all_routes.pop(i)
+
+    for route in all_routes:
+        min += route.total_time
+
+    T = len(all_routes)
+    P = score_function.fraction_p(all_stations)
+    K = score_function.calculate_var_k(P, T, min)
+
+    return all_routes, K
+    
+
+def greedy_11(map):
+    all_routes, K, all_stations = complete_run(map)
+
+    remove = []
+    min = 0
+    for i in range(len(all_routes)):
+
+        if len(all_routes[i].route) == 2:
+            all_routes[i].route[0].unridden_connection(all_routes[i].route[1])
+            all_routes[i].route[1].unridden_connection(all_routes[i].route[0])
+            remove.append(i)
+
+    remove.reverse()  
+
+    for i in remove:
+        all_routes.pop(i)
+
+    for route in all_routes:
+        min += route.total_time
+
+    T = len(all_routes)
+    P = score_function.fraction_p(all_stations)
+    K = score_function.calculate_var_k(P, T, min)
 
     return all_routes, K
