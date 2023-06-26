@@ -9,7 +9,8 @@ from resultaten.write_results import write_results, plot_results
 
 import subprocess
 import time
-from experiments.random_experiment import experiment_random
+from code.experiments.random_experiment import experiment_random
+from code.experiments.hillclimber_experiment import experiment_hillclimber
 # import statisti
 
 # Set which data to use ("Nationaal" or "Holland")
@@ -47,37 +48,40 @@ routes, K = greedy.complete_run(map)
 output.output(routes, K)
 
 
-K_list = []
-for i in range(1):
-   routes, K = greedy.complete_run(map)
-   K_list.append(K)
-output.output(routes, K)
+# K_list = []
+# for i in range(1):
+#    routes, K = greedy.complete_run(map)
+#    K_list.append(K)
+# output.output(routes, K)
+
+# print(max(K_list))
+# print(K_list)
 
 
-print(max(K_list))
-print(K_list)
-
-
-# # ----------- Run hillclimber algorithm -------
-# # Choose start solution for hillclimber ("greedy" or "random")
-# start_algorithm = "greedy"
+# ----------- Run hillclimber algorithm -------
+# Choose start solution for hillclimber ("greedy" or "random")
+# start_algorithm = "random"
 # # Choose heuristic for generating new route ("random", "greedy", "hillclimber") (when choosing greedy+greedy, see greedy algorithm)
 # route_heuristic = "hillclimber"
 
 # K_list = []
+# iterations = []
 # all_lists_values = []
 # original_all_routes, copy_all_stations, var_min, current_k = hillclimber.initial_hillclimber(map, start_algorithm)
 # for i in range(10000):
 #     routes, current_k, var_min, values_list = hillclimber.hillclimber(map, route_heuristic, original_all_routes, copy_all_stations, var_min, current_k)
 #     K_list.append(current_k)
+#     iterations.append(i)
 #     all_lists_values.append(values_list)
 
 # # print(K_list)
 # print(min(K_list))
 # print(max(K_list))
 # write_results(all_lists_values)
-# # plot_results(all_lists_values)
-# output.output(routes, current_k)
+# plt.plot(iterations, K_list)
+# plt.show()
+# plot_results(all_lists_values)
+#output.output(routes, current_k)
 
 
 
@@ -95,5 +99,6 @@ print(K_list)
 
 #-------------Experiments------------
 
-# experiment_random(map)
+#experiment_random(map)
+experiment_hillclimber(map)
 
