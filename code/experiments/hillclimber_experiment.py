@@ -10,7 +10,7 @@ def experiment_hillclimber(map):
     # Choose start solution for hillclimber ("greedy" or "random")
     start_algorithm = "random"
     # Choose heuristic for generating new route ("random", "greedy", "hillclimber") (when choosing greedy+greedy, see greedy algorithm)
-    route_heuristic = "random"
+    route_heuristic = "hillclimber"
 
     K_list = []
     iterations = []
@@ -18,7 +18,7 @@ def experiment_hillclimber(map):
     
     original_all_routes, copy_all_stations, var_min, current_k = hillclimber.initial_hillclimber(map, start_algorithm)
     
-    for i in range(100000):
+    for i in range(1000000):
         if i % 1000 == 0:
             print(i)
         routes, current_k, var_min, values_list = hillclimber.hillclimber(map, route_heuristic, original_all_routes, copy_all_stations, var_min, current_k)
@@ -26,14 +26,13 @@ def experiment_hillclimber(map):
         iterations.append(i)
         all_lists_values.append(values_list)
 
-        if i > 500:
-            if K_list[-500] == current_k:
+        if i > 10000:
+            if K_list[-10000] == current_k:
                 original_all_routes, copy_all_stations, var_min, current_k = hillclimber.initial_hillclimber(map, start_algorithm)
 
 
     print(max(K_list))
     plt.plot(iterations, K_list)
-    # plt.axhline(y=6963)
     plt.axhline(y=4727, color="r")
     plt.title(f"Scores hillclimber algoritme (max: {int(max(K_list))})")
     plt.xlabel("Iteraties")

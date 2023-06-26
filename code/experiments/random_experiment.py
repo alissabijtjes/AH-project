@@ -9,7 +9,7 @@ import csv
 def experiment_random(map):
     # ------------- Run random algorithm -----------
     K_list = []
-    for i in range(1000000):
+    for i in range(100000):
         routes, K = random_run.random_algorithm(map)
         K_list.append(K)
         print(i)
