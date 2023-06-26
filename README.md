@@ -3,16 +3,25 @@
 
 ## Aan de slag
 ### Vereisten
-Deze codebase is geschreven in Python 3.9. In requirements.txt staan alle benodigde packages voor het draaien van de code. Deze is te installeren m.b.v. pip:
-
-pip install -r requirements.txt
+Deze codebase is geschreven in Python 3.9. Er hoeven geen packages te worden geinstalleerd om de code te runnen.
 
 ### Gebruik
 Bestand runnen:
 
 python main.py
 
-In main.py staan voorbeelden voor het gebruik van de de verschillende functies.
+In main.py staan voorbeelden voor het gebruik van de de verschillende functies om de algoritmes te draaien.
+
+Experimenten:
+1. Random
+    * Run experiment_random in main
+2. Hillclimber (random-random)
+    * In bestand hillclimber_experiment verander start_algorithm in random en route_heuristic in random
+    * Run experiment_hillclimber in main
+3. Hillclimber (random-hillclimber)
+    * In bestand hillclimber_experiment verander start_algorithm in random en route_heuristic in hillclimber
+    * Run experiment_hillclimber in main
+4. Greedy
 
 ### Structuur
 De hierop volgende lijst beschrijft de belangrijkste mappen en files in het project, en waar je ze kan vinden:

@@ -19,7 +19,7 @@ def experiment_hillclimber(map):
     
     original_all_routes, copy_all_stations, var_min, current_k = hillclimber.initial_hillclimber(map, start_algorithm)
     
-    for i in range(100000):
+    for i in range(1000000):
         if i % 1000 == 0:
             print(i)
         routes, current_k, var_min, values_list = hillclimber.hillclimber(map, route_heuristic, original_all_routes, copy_all_stations, var_min, current_k)
@@ -33,6 +33,9 @@ def experiment_hillclimber(map):
         iterations.append(i)
         all_lists_values.append(values_list)
 
+        if i > 10000:
+            if K_list[-10000] == current_k:
+                original_all_routes, copy_all_stations, var_min, current_k = hillclimber.initial_hillclimber(map, start_algorithm)
 
         if i > 1000:
             if K_list[-1000] == current_k:

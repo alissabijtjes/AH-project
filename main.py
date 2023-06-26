@@ -6,9 +6,6 @@ from code.algorithms import hillclimber
 from code.helper import output
 import matplotlib.pyplot as plt
 from resultaten.write_results import write_results, plot_results
-
-import subprocess
-import time
 from code.experiments.random_experiment import experiment_random
 from code.experiments.hillclimber_experiment import experiment_hillclimber
 
@@ -98,8 +95,11 @@ map = "Nationaal"
 #   plot.live_plot(route, all_stations)
 
 
-#-------------Experiments------------
+#-------------Experiments-------------
 
+# Run random experiment
 # experiment_random(map)
+
+# Run hillclimber experiment
 experiment_hillclimber(map)
 
