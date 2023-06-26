@@ -19,7 +19,7 @@ def initial_hillclimber(map, start_algorithm, max_routes):
     if start_algorithm == "random":
         all_routes, first_k = random_run.random_algorithm(map, max_routes)
     if start_algorithm == "greedy":
-        all_routes, first_k = greedy.complete_run(map)
+        all_routes, first_k = greedy.greedy_11(map)
 
     # Create new list for storage of all routes
     original_all_routes = []
