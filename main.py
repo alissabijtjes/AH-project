@@ -44,8 +44,8 @@ map = "Nationaal"
 # print(min(K_list))
 
 # ----------- Run greedy algoritm -----------
-routes, K = greedy.complete_run(map)
-output.output(routes, K)
+# routes, K = greedy.complete_run(map)
+# output.output(routes, K)
 
 
 # K_list = []
@@ -99,6 +99,6 @@ output.output(routes, K)
 
 #-------------Experiments------------
 
-#experiment_random(map)
-experiment_hillclimber(map)
+# experiment_random(map)
+# experiment_hillclimber(map)
 

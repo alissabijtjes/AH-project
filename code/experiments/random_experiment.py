@@ -9,22 +9,19 @@ import csv
 def experiment_random(map):
     # ------------- Run random algorithm -----------
     K_list = []
-    for i in range(1000):
+    for i in range(1000000):
         routes, K = random_run.random_algorithm(map)
         K_list.append(K)
+        print(i)
     output.output(routes, K)
 
-    plt.hist(K_list, bins=50)
-    plt.xlabel("K value")
-    plt.ylabel("Amount")
+    # Plot histogram
+    plt.title(f"Scores random algoritme (max: {int(max(K_list))})")
+    plt.hist(K_list, bins=100, color="blue", ec="lightblue")
+    plt.xlabel("Score")
+    plt.ylabel("Hoeveelheid")
+    plt.legend(["Random"])
     plt.show()
 
     print(max(K_list))
-    print(min(K_list))
 
-    all_stations = import_data.import_data(map)
-    plot.plot_routes(routes, all_stations)
-    plot.plot(all_stations)
-
-    for route in routes:
-      plot.live_plot(route, all_stations)

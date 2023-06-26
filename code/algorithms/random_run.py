@@ -84,7 +84,7 @@ def route_(all_stations, map):
 #     return ridden / total
 
 
-def random_algorithm(map, max_routes):
+def random_algorithm(map):
     """Produces random solution with given map."""
 
     all_routes = []
