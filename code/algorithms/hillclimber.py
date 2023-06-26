@@ -9,7 +9,7 @@ import random
 import copy
 
 
-def initial_hillclimber(map, start_algorithm, max_routes):
+def initial_hillclimber(map, start_algorithm):
 
     # Importing all stations from map
     all_stations = import_data.import_data(map)
@@ -17,7 +17,7 @@ def initial_hillclimber(map, start_algorithm, max_routes):
 
     # Initial state hill climbing
     if start_algorithm == "random":
-        all_routes, first_k = random_run.random_algorithm(map, max_routes)
+        all_routes, first_k = random_run.random_algorithm(map)
     if start_algorithm == "greedy":
         all_routes, first_k = greedy.greedy_11(map)
 

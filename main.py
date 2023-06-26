@@ -101,5 +101,5 @@ map = "Nationaal"
 #-------------Experiments------------
 
 # experiment_random(map)
-# experiment_hillclimber(map)
+experiment_hillclimber(map)
 
