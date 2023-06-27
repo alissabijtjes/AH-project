@@ -48,9 +48,8 @@ def greedy(all_stations, map):
             if stop:
                 break
         
-
+    # Create route object
     route = Route(start_point)
-
 
     # Loop until total time is less than two hours
     while route.total_time < max_allowed_time:
@@ -80,11 +79,11 @@ def greedy(all_stations, map):
                 if stop:
                     break
 
-        # else, set destination random(could later be improved)
+        # else, stop the route
         if destination == None:
             break
-            destination = random.choice(current_station.connections)
 
+        # get station and time from the destination list
         station = destination[0]
         time = destination[1]
 
@@ -92,9 +91,10 @@ def greedy(all_stations, map):
         if route.total_time + time > max_allowed_time:
             break
 
+        # Add station to route
         else:
             station.set_visited()
-            route.add_route(station, time)
+            route.add_station(station, time)
 
             # Set connections to ridden
             station.ridden_connection(current_station)
@@ -104,7 +104,7 @@ def greedy(all_stations, map):
 
 
 def complete_run(map):
-    """Produces random solution with given map."""
+    """Produces greedy solution with given map."""
 
     all_routes = []
     Min = 0
@@ -138,11 +138,15 @@ def complete_run(map):
     return all_routes, K, all_stations
 
 def greedy_12(map):
+    """Removes one route from the greedy solution"""
+
+    # Run greedy algorithm
     all_routes, K, all_stations = complete_run(map)
 
-    
     remove = []
     min = 0
+
+    # Set the connection back to unridden
     for i in range(len(all_routes)):
 
         if len(all_routes[i].route) == 2:
@@ -151,6 +155,7 @@ def greedy_12(map):
             remove.append(i)
             break
 
+    # Remove the route
     remove.reverse()  
 
     for i in remove:
@@ -159,6 +164,7 @@ def greedy_12(map):
     for route in all_routes:
         min += route.total_time
 
+    # Calculate results
     T = len(all_routes)
     P = score_function.fraction_p(all_stations)
     K = score_function.calculate_var_k(P, T, min)
@@ -167,10 +173,15 @@ def greedy_12(map):
     
 
 def greedy_11(map):
+    """Remove two routes from greedy solution."""
+
+    # Run greedy algorithm
     all_routes, K, all_stations = complete_run(map)
 
     remove = []
     min = 0
+
+    # Set connections back to unridden
     for i in range(len(all_routes)):
 
         if len(all_routes[i].route) == 2:
@@ -178,6 +189,7 @@ def greedy_11(map):
             all_routes[i].route[1].unridden_connection(all_routes[i].route[0])
             remove.append(i)
 
+    # Remove routes
     remove.reverse()  
 
     for i in remove:
@@ -186,6 +198,7 @@ def greedy_11(map):
     for route in all_routes:
         min += route.total_time
 
+    # Calculate score
     T = len(all_routes)
     P = score_function.fraction_p(all_stations)
     K = score_function.calculate_var_k(P, T, min)

@@ -65,7 +65,7 @@ def hillclimber(map, route_heuristic, original_all_routes, copy_all_stations, va
                             des_station = destination[0]
                             time_station = destination[1]
                             route_station.set_visited()
-                            new_route.add_route(des_station, time_station)
+                            new_route.add_station(des_station, time_station)
                             if connection[0].name == destination[0].name:
                                 # Set connections to ridden
                                 station.ridden_connection(destination[0])
@@ -160,7 +160,7 @@ def hillclimber_new_route(copy_all_stations, map):
 
         else:
             station.set_visited()
-            route.add_route(station, time)
+            route.add_station(station, time)
 
             # Set connections to ridden
             station.ridden_connection(current_station)

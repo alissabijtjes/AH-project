@@ -1,7 +1,7 @@
 import csv
 import random
 
-from code.imports.import_data import import_data
+from code.imports import import_data
 from code.helper import score_function
 from code.classes.route import Route
 
@@ -17,16 +17,9 @@ def route_(all_stations, map):
 
     # Creates route object with random start point
     start_point = random.choice(all_stations)
-    # i = 0
-    # while start_point.visited:
-    #     i += 1
-    #     start_point = random.choice(all_stations)
-    #     if i > 50:
-    #         break
-        
 
+    # Create route object
     route = Route(start_point)
-
 
     # Loop until total time is less than two hours
     while route.total_time < max_allowed_time:
@@ -37,17 +30,6 @@ def route_(all_stations, map):
         # Choose random next destination
         destination = random.choice(current_station.connections)
 
-        # destination = None
-
-        # for connection in current_station.connections:
-        #     # print(connection[0].name)
-        #     if connection[0].visited == False:
-        #         # print(connection[0].name)
-        #         destination = connection
-                
-        # if destination == None:
-        #     destination = random.choice(current_station.connections)
-
         station = destination[0]
         time = destination[1]
 
@@ -57,7 +39,7 @@ def route_(all_stations, map):
 
         else:
             station.set_visited()
-            route.add_route(station, time)
+            route.add_station(station, time)
 
             # Set connections to ridden
             station.ridden_connection(current_station)
@@ -66,40 +48,19 @@ def route_(all_stations, map):
     return route
 
 
-# def fraction_p(all_stations):
-#     """Calculates the fraction of ridden connections."""
-
-#     ridden = 0
-#     total = 0
-
-#     # Loops over all stations
-#     for station in all_stations:
-
-#         # Loops over all connection for every station and check if station in ridden
-#         for connection in station.connections:
-#             total += 1
-#             if connection[2]:
-#                 ridden += 1
-    
-#     return ridden / total
-
-
 def random_algorithm(map):
     """Produces random solution with given map."""
 
     all_routes = []
     Min = 0
-    all_stations = import_data(map)
+    all_stations = import_data.import_(map)
     
     # Set correct value for maximum train routes
     if map == "Nationaal":
-        max_routes = 20
         max_routes = random.randint(1,20)
 
-    # if map == "Holland":
-    #     max_routes = 7
-
-    # max_routes = 18
+    if map == "Holland":
+        max_routes = random.randit(1,7)
 
     # Create the routes
     for i in range(0, max_routes):
