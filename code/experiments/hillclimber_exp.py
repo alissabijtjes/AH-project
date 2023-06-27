@@ -6,7 +6,9 @@ from code.algorithms import hillclimber
 from code.helper import output
 from code.visualisation import plot
 
-def hillclimber_exp(map, iterations_experiment, begin, algoritme):
+def experiment(map, iterations_experiment, begin, algoritme):
+    """Preceeds experiment with hillclimber algorithm."""
+
     # Amount of iterations
     max_iterations = iterations_experiment
 

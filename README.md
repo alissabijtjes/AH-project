@@ -26,17 +26,19 @@ In main.py staan voorbeelden voor het gebruik van de de verschillende functies o
 
 #### Runnen experimenten:
 1. Random
-    * Run experiment_random in main
+    * Run random_exp.experiment in main (line 120)
 2. Hillclimber (random-random)
-    * Run experiment_hillclimber in main met begin is random en algoritme is random
+    * Run hillclimber_exp.experiment in main met begin is random en algoritme is random
 3. Hillclimber (random-hillclimber)
-    * Run experiment_hillclimber in main met begin is random en algoritme is hillclimber
+    * Run hillclimber_exp.experiment in main met begin is random en algoritme is hillclimber
 4. Hillclimber (greedy-hillclimber)
-    * Run experiment_hillclimber in main met begin is greedy en algoritme is hillclimber
+    * Run hillclimber_exp.experiment in main met begin is greedy en algoritme is hillclimber
 5. Hillclimber (greedy-hillclimber)
-    * Run experiment_hillclimber in main met begin is greedy11 en algoritme is hillclimber
+    * Run hillclimber_exp.experiment in main met begin is greedy11 en algoritme is hillclimber
 6. Hillclimber (greedy-hillclimber)
-    * Run experiment_hillclimber in main met begin is greedy12 en algoritme is hillclimber
+    * Run hillclimber_exp.experiment in main met begin is greedy12 en algoritme is hillclimber
+7. Hillclimber (different number of routes)
+    * Run var_routes.experiment in main
 
 ### Structuur
 De hierop volgende lijst beschrijft de belangrijkste mappen en files in het project, en waar je ze kan vinden:

@@ -1,4 +1,3 @@
-import csv
 import random
 
 from code.imports import import_data
@@ -6,7 +5,7 @@ from code.classes.route import Route
 from code.helper import score_function
 
 def my_Func(all_stations):
-    """funtion to sort stations by their number of connections"""
+    """Function to sort stations by their number of connections."""
     return(len(all_stations.connections))
 
 
