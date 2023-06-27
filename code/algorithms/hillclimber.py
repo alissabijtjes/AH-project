@@ -7,7 +7,7 @@ from code.classes.route import Route
 from code.helper import score_function
 
 
-def initial_hillclimber(map, start_algorithm):
+def initial_hillclimber(map, start_algorithm, number_of_routes=0):
 
     # Importing all stations from map
     all_stations = import_data.import_(map)
@@ -15,7 +15,7 @@ def initial_hillclimber(map, start_algorithm):
 
     # Initial state hill climbing
     if start_algorithm == "random":
-        all_routes, first_k, dummy = random_run.random_algorithm(map)
+        all_routes, first_k, dummy = random_run.random_algorithm(map, number_of_routes)
     if start_algorithm == "greedy":
         all_routes, first_k, all_stations = greedy.complete_run(map)
     if start_algorithm == "greedy11":
