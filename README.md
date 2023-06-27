@@ -10,7 +10,7 @@ Welke trein waar en wanneer rijdt wordt bepaald door de lijnvoering. Maar wat is
 ### Greedy
 
 ### Hillclimber
-Voor het hillclimber algoritme wordt een random beginoplossing gegenereerd. Daarna wordt er een nieuwe oplossing gemaakt waarbij 1 random traject wordt uitgekozen uit de gehele lijnvoering en deze wordt verandert in een nieuw traject. Dit nieuwe traject kan bestaan uit een random gegenereerd traject of een traject met heuristieken die kiest voor connecties die nog niet bereden zijn. Als de nieuwe oplossing een hogere K-waarde heeft dan de huidige oplossing wordt deze de nieuwe huidige oplossing.
+Voor het hillclimber algoritme wordt een random of greedy beginoplossing gegenereerd. Daarna wordt er een nieuwe oplossing gemaakt waarbij 1 random traject wordt uitgekozen uit de gehele lijnvoering en deze wordt verandert in een nieuw traject. Dit nieuwe traject kan bestaan uit een random gegenereerd traject of een traject met heuristieken die kiest voor connecties die nog niet bereden zijn. Als de nieuwe oplossing een hogere K-waarde heeft dan de huidige oplossing wordt deze de nieuwe huidige oplossing.
 
 ## Aan de slag
 ### Vereisten
@@ -24,16 +24,19 @@ python main.py
 ```
 In main.py staan voorbeelden voor het gebruik van de de verschillende functies om de algoritmes te draaien.
 
-Runnen experimenten:
+#### Runnen experimenten:
 1. Random
     * Run experiment_random in main
 2. Hillclimber (random-random)
-    * In bestand hillclimber_experiment verander start_algorithm in random en route_heuristic in random
-    * Run experiment_hillclimber in main
+    * Run experiment_hillclimber in main met begin is random en algoritme is random
 3. Hillclimber (random-hillclimber)
-    * In bestand hillclimber_experiment verander start_algorithm in random en route_heuristic in hillclimber
-    * Run experiment_hillclimber in main
-4. Greedy
+    * Run experiment_hillclimber in main met begin is random en algoritme is hillclimber
+4. Hillclimber (greedy-hillclimber)
+    * Run experiment_hillclimber in main met begin is greedy en algoritme is hillclimber
+5. Hillclimber (greedy-hillclimber)
+    * Run experiment_hillclimber in main met begin is greedy11 en algoritme is hillclimber
+6. Hillclimber (greedy-hillclimber)
+    * Run experiment_hillclimber in main met begin is greedy12 en algoritme is hillclimber
 
 ### Structuur
 De hierop volgende lijst beschrijft de belangrijkste mappen en files in het project, en waar je ze kan vinden:

@@ -6,9 +6,9 @@ import matplotlib.pyplot as plt
 import copy
 import csv
 
-def random_exp(map):
-    # Choose amount of iterations
-    max_iterations = 100000
+def experiment_random(map, iterations_experiment):
+    # Amount of iterations
+    max_iterations = iterations_experiment
 
     K_list = []
     for i in range(max_iterations):
