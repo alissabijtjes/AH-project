@@ -4,9 +4,9 @@ from code.helper import output
 from code.visualisation import plot
 import matplotlib.pyplot as plt
 
-def experiment_hillclimber(map, begin, algoritme):
-    # Choose amount of iterations
-    max_iterations = 1000
+def experiment_hillclimber(map, iterations_experiment, begin, algoritme):
+    # Amount of iterations
+    max_iterations = iterations_experiment
 
     # Start algorithms and the new route heuristics
     start_algorithm = begin
