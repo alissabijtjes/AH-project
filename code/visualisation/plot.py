@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
-from random import randrange
 
 def plot(all_stations):
     """give visual representation of the data"""
