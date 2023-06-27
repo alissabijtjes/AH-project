@@ -1,12 +1,10 @@
-"""Hillclimber file."""
+import random
+import copy
 
-from code.algorithms import random_run
-from code.algorithms import greedy
+from code.algorithms import random_run, greedy
 from code.imports import import_data
 from code.classes.route import Route
 from code.helper import score_function
-import random
-import copy
 
 
 def initial_hillclimber(map, start_algorithm):
