@@ -4,7 +4,7 @@ from code.helper import output
 from code.visualisation import plot
 import matplotlib.pyplot as plt
 
-def experiment_hillclimber(map, begin, algoritme):
+def hillclimber_exp(map, begin, algoritme):
     # Choose amount of iterations
     max_iterations = 100
 

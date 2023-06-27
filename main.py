@@ -1,14 +1,10 @@
 import matplotlib.pyplot as plt
 
-from code.algorithms import random_run
+from code.algorithms import random_run, greedy, hillclimber
 from code.imports import import_data
 from code.visualisation import plot
-from code.algorithms import greedy
-from code.algorithms import hillclimber
-from code.helper import output
-from code.helper.write_results import write_results
-from code.experiments.random_experiment import experiment_random
-from code.experiments.hillclimber_experiment import experiment_hillclimber
+from code.helper import output, write_results
+from code.experiment import random_experiment, experiment_hillclimber
 
 # Set which data to use ("Nationaal" or "Holland")
 map = "Nationaal"
@@ -105,7 +101,7 @@ for i in range(iterations):
 print(f"Best score: {max(K_values):.2f}")
 
 # Save all data in "results-values.csv" file
-write_results(data)
+write_results.write(data)
 
 # Plot the data
 plt.plot(runs, K_values)

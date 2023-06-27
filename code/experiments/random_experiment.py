@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import copy
 import csv
 
-def experiment_random(map):
+def random_exp(map):
     # Choose amount of iterations
     max_iterations = 100000
 
