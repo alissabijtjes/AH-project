@@ -113,8 +113,8 @@ map = "Nationaal"
 # ------- End Hillclimber algorithm ----- #
 
 
-#------------- Experiments -------------- #
-iterations_experiment = 100
+# ------------- Experiments ------------- #
+iterations_experiment = 1000000
 
 # # Run random experiment
 # #experiment_random(map, iterations_experiment)
