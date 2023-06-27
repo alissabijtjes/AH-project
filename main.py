@@ -112,7 +112,7 @@ map = "Nationaal"
 # Run hillclimber experiment with greedy11 start solution and hillclimber new route
 experiment_hillclimber(map, begin="greedy11", algoritme="hillclimber")
 
-# Run hillclimber experiment with greedy11 start solution and hillclimber new route
+# Run hillclimber experiment with greedy12 start solution and hillclimber new route
 # experiment_hillclimber(map, begin="greedy12", algoritme="hillclimber")
 
 

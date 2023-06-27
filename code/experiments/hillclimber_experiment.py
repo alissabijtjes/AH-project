@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 def experiment_hillclimber(map, begin, algoritme):
     # Choose amount of iterations
-    max_iterations = 100
+    max_iterations = 1000
 
     # Start algorithms and the new route heuristics
     start_algorithm = begin
