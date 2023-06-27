@@ -1,7 +1,5 @@
-"""Class station."""
-
 class Station():
-    """Class station."""
+    """Station object with name, coordinates and connections."""
 
     counter = 1
     def __init__(self, name, y, x):

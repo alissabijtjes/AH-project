@@ -1,14 +1,10 @@
 import matplotlib.pyplot as plt
 
-from code.algorithms import random_run
+from code.algorithms import random_run, greedy, hillclimber
 from code.imports import import_data
 from code.visualisation import plot
-from code.algorithms import greedy
-from code.algorithms import hillclimber
-from code.helper import output
-from code.helper.write_results import write_results
-from code.experiments.random_experiment import experiment_random
-from code.experiments.hillclimber_experiment import experiment_hillclimber
+from code.helper import output, write_results
+from code.experiments import random_experiment, hillclimber_experiment
 
 # Set which data to use ("Nationaal" or "Holland")
 map = "Nationaal"
@@ -54,7 +50,7 @@ map = "Nationaal"
 
 # ----------- Run greedy algoritm ----------- #
 
-# Run algoritm (Only needs to runs once because gives the same solution every time)
+# # Run algoritm (Only needs to runs once because gives the same solution every time)
 # routes, K, all_stations = greedy.complete_run(map)
 
 # # Saves the routes
@@ -71,48 +67,48 @@ map = "Nationaal"
 
 # ----------- Run hillclimber algorithm ----- #
 
-# Choose amount of iterations
-iterations = 100
+# # Choose amount of iterations
+# iterations = 100
 
-# Choose start solution for hillclimber ("greedy" or "random")
-start_algorithm = "random"
+# # Choose start solution for hillclimber ("greedy" or "random")
+# start_algorithm = "random"
 
-# Choose heuristic for generating new route ("random", "hillclimber")
-route_heuristic = "hillclimber"
+# # Choose heuristic for generating new route ("random", "hillclimber")
+# route_heuristic = "hillclimber"
 
-# Initiate lists
-K_values = []
-runs = []
-data = []
+# # Initiate lists
+# K_values = []
+# runs = []
+# data = []
 
-# Run an algoritm once to get a start state
-original_all_routes, copy_all_stations, var_min, current_k = hillclimber.initial_hillclimber(map, start_algorithm)
+# # Run an algoritm once to get a start state
+# original_all_routes, copy_all_stations, var_min, current_k = hillclimber.initial_hillclimber(map, start_algorithm)
 
-# Run hillclimber x times
-for i in range(iterations):
-    routes, current_k, var_min, values_list = hillclimber.hillclimber(map, route_heuristic, original_all_routes, copy_all_stations, var_min, current_k)
+# # Run hillclimber x times
+# for i in range(iterations):
+#     routes, current_k, var_min, values_list = hillclimber.hillclimber(map, route_heuristic, original_all_routes, copy_all_stations, var_min, current_k)
 
-    # Save best run
-    if i != 0:
-        if current_k > max(K_values):
-            output.output(routes, current_k)
+#     # Save best run
+#     if i != 0:
+#         if current_k > max(K_values):
+#             output.output(routes, current_k)
 
-    K_values.append(current_k)
-    runs.append(i)
-    data.append(values_list)
+#     K_values.append(current_k)
+#     runs.append(i)
+#     data.append(values_list)
 
-# Print best score
-print(f"Best score: {max(K_values):.2f}")
+# # Print best score
+# print(f"Best score: {max(K_values):.2f}")
 
-# Save all data in "results-values.csv" file
-write_results(data)
+# # Save all data in "results-values.csv" file
+# write_results.write(data)
 
-# Plot the data
-plt.plot(runs, K_values)
-plt.title("Hillclimber algoritme")
-plt.xlabel("Iteratie")
-plt.ylabel("Score")
-plt.show()
+# # Plot the data
+# plt.plot(runs, K_values)
+# plt.title("Hillclimber algoritme")
+# plt.xlabel("Iteratie")
+# plt.ylabel("Score")
+# plt.show()
 
 # ------- End Hillclimber algorithm ----- #
 
@@ -120,24 +116,20 @@ plt.show()
 # ------------- Experiments ------------- #
 iterations_experiment = 1000000
 
-# Run random experiment
-#experiment_random(map, iterations_experiment)
+# # Run random experiment
+# #experiment_random(map, iterations_experiment)
 
-# Run hillclimber experiment with random start solution and random new route
-# experiment_hillclimber(map, iterations_experiment, begin="random", algoritme="random")
+# # Run hillclimber experiment with random start solution and random new route
+# hillclimber_experiment.hillclimber_exp(map, iterations_experiment, begin="random", algoritme="random")
 
-# Run hillclimber experiment with random start solution and hillclimber new route
-#experiment_hillclimber(map, iterations_experiment, begin="random", algoritme="hillclimber")
+# # Run hillclimber experiment with random start solution and hillclimber new route
+# hillclimber_experiment.hillclimber_exp(map, iterations_experiment, begin="random", algoritme="hillclimber")
 
-# Run hillclimber experiment with greedy start solution and hillclimber new route
-# experiment_hillclimber(map, iterations_experiment, begin="greedy", algoritme="hillclimber")
+# # Run hillclimber experiment with greedy start solution and hillclimber new route
+# hillclimber_experiment.hillclimber_exp(map, iterations_experiment, begin="greedy", algoritme="hillclimber")
 
-# Run hillclimber experiment with greedy11 start solution and hillclimber new route
-#experiment_hillclimber(map, iterations_experiment, begin="greedy11", algoritme="hillclimber")
+# # Run hillclimber experiment with greedy (11 routes) start solution and hillclimber new route
+# hillclimber_experiment.hillclimber_exp(map, iterations_experiment, begin="greedy11", algoritme="hillclimber")
 
-# Run hillclimber experiment with greedy12 start solution and hillclimber new route
-# experiment_hillclimber(map, iterations_experiment, begin="greedy12", algoritme="hillclimber")
-
-
-
-
+# # Run hillclimber experiment with greedy (12 routes) start solution and hillclimber new route
+# hillclimber_experiment.hillclimber_exp(map, iterations_experiment, begin="greedy12", algoritme="hillclimber")

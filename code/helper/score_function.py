@@ -1,6 +1,3 @@
-"""Helper file with function for calculation of fraction p."""
-
-
 def fraction_p(all_stations):
     """Calculates the fraction of ridden connections."""
 
@@ -22,4 +19,5 @@ def calculate_var_k(var_p, var_t, var_min_totaal):
     """Calculates k-value with the score function."""
 
     var_k = var_p * 10000 - (var_t * 100 + var_min_totaal)
+    
     return var_k

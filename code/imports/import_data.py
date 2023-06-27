@@ -1,7 +1,8 @@
 import csv
+
 from code.classes.station import Station
 
-def import_data(map):
+def import_(map):
     """Import stations and connecties from given map (Holland or Nationaal)."""
 
     # Import stations

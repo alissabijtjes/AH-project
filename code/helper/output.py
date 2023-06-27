@@ -1,5 +1,3 @@
-"""Helper file with function for uniform output."""
-
 import csv
 
 def output(routes, score):
