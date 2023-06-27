@@ -42,12 +42,7 @@ def hillclimber_exp(map, iterations_experiment, begin, algoritme):
         if i > 10000:
             if K_list[-10000] == current_k:
                 original_all_routes, copy_all_stations, var_min, current_k = hillclimber.initial_hillclimber(map, start_algorithm)
-        
-        # Generates new start solution when k-values are the same for 1000 times
-        if i > 1000:
-            if K_list[-1000] == current_k:
-                original_all_routes, copy_all_stations, var_min, current_k = hillclimber.initial_hillclimber(map, start_algorithm)
-
+    
     print(max(K_list))
 
     # Plot graph with iterations and k-scores

@@ -13,7 +13,7 @@ map = "Nationaal"
 # # ----------- Run random algorithm ----------- #
 
 # # Set how many runs you want
-# iterations = 1000
+# iterations = 1000000
 
 # # list for the score
 # K_values = []
@@ -68,7 +68,7 @@ map = "Nationaal"
 # ----------- Run hillclimber algorithm ----- #
 
 # # Choose amount of iterations
-# iterations = 100
+# iterations = 1000000
 
 # # Choose start solution for hillclimber ("greedy" or "random")
 # start_algorithm = "random"
@@ -135,4 +135,5 @@ iterations_experiment = 1000000
 # hillclimber_experiment.hillclimber_exp(map, iterations_experiment, begin="greedy12", algoritme="hillclimber")
 
 # Run hillclimber with different number of routes (1-20)
-var_routes.experiment(map, iterations_experiment)
+# iterations_experiment = 10000
+# var_routes.experiment(map, iterations_experiment)
