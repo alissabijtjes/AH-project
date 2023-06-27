@@ -1,7 +1,7 @@
 import csv
 import random
 
-from code.imports.import_data import import_data
+from code.imports import import_data
 from code.classes.route import Route
 from code.helper import score_function
 
@@ -108,7 +108,7 @@ def complete_run(map):
 
     all_routes = []
     Min = 0
-    all_stations = import_data(map)
+    all_stations = import_data.import_(map)
     
     # Set correct value for maximum train routes
     if map == "Nationaal":

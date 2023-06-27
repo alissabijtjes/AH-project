@@ -10,7 +10,7 @@ from code.helper import score_function
 def initial_hillclimber(map, start_algorithm):
 
     # Importing all stations from map
-    all_stations = import_data.import_data(map)
+    all_stations = import_data.import_(map)
     copy_all_stations = copy.deepcopy(all_stations)
 
     # Initial state hill climbing
