@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from code.algorithms import random_run
 from code.helper import output
 
-def experiment_random(map, iterations_experiment):
+def experiment(map, iterations_experiment):
     """Preceeds experiment with random algorithm."""
     
     # Amount of iterations
