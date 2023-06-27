@@ -33,7 +33,8 @@ De hierop volgende lijst beschrijft de belangrijkste mappen en files in het proj
     * /code/imports: bevat de code voor het importeren van de data
     * /code/visualisation: bevat de code voor visualisatie van de case
 * /data: bevat de databestanden met de stations en connecties
-* /resultaten: bevat de output
+* /docs: bevat de bestanden met de berekening van de state space en de berekening van de theoretische optimale score
+* /resultaten: bevat de het bestande met de output en de resultaten van de experimenten
 
 
 ## Auteurs
