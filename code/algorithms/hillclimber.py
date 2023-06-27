@@ -17,7 +17,7 @@ def initial_hillclimber(map, start_algorithm):
 
     # Initial state hill climbing
     if start_algorithm == "random":
-        all_routes, first_k = random_run.random_algorithm(map)
+        all_routes, first_k, dummy = random_run.random_algorithm(map)
     if start_algorithm == "greedy":
         all_routes, first_k = greedy.greedy_11(map)
 

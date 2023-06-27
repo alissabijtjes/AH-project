@@ -1,98 +1,120 @@
+import matplotlib.pyplot as plt
+
 from code.algorithms import random_run
 from code.imports import import_data
 from code.visualisation import plot
 from code.algorithms import greedy
 from code.algorithms import hillclimber
 from code.helper import output
-import matplotlib.pyplot as plt
-from resultaten.write_results import write_results, plot_results
+from code.helper.write_results import write_results
 from code.experiments.random_experiment import experiment_random
 from code.experiments.hillclimber_experiment import experiment_hillclimber
 
 # Set which data to use ("Nationaal" or "Holland")
 map = "Nationaal"
 
-# ------------- Run random algorithm -----------
-# K_list = []
-# iteraties = []
-# for i in range(1000):
-#     routes, K = random_run.random_algorithm(map)
-#     K_list.append(K)
-#     iteraties.append(i)
-# output.output(routes, K)
-# print(max(K_list))
-# plt.plot(iteraties, K_list)
+
+# ----------- Run random algorithm ----------- #
+
+# # Set how many runs you want
+# iterations = 1000
+
+# # list for the score
+# K_values = []
+
+# # Run algormitme x times
+# for i in range(iterations):
+#     routes, K, all_stations = random_run.random_algorithm(map)
+
+#     # Save best run
+#     if i != 0:
+#         if K > max(K_values):
+#             output.output(routes, K)
+#             best_all_stations = all_stations
+#             best_routes = routes
+
+#     K_values.append(K)
+
+# # Print best score
+# print(f"Best score: {max(K_values):.2f}")
+
+# # Plot the data
+# plt.hist(K_values, bins=50, ec="lightblue")
+# plt.title("Random algoritme")
+# plt.xlabel("Score")
+# plt.ylabel("Aantal")
 # plt.show()
 
-# for station in routes[0].route:
-#     print(station.name)
+# # Visualisation
+# plot.plot_routes(best_routes, best_all_stations)
 
-# print(routes[0].total_time)
+# ----------- End random algoritme ---------- #
 
 
 
-# plt.hist(K_list, bins=50)
-# plt.xlabel("K value")
-# plt.ylabel("Amount")
-# plt.show()
+# ----------- Run greedy algoritm ----------- #
 
-# print(max(K_list))
-# print(min(K_list))
-
-# ----------- Run greedy algoritm -----------
+# Run algoritm (Only needs to runs once because gives the same solution every time)
 # routes, K, all_stations = greedy.complete_run(map)
-# output.output(routes, K)
-# routes, K = greedy.greedy_12(map)
-# routes, K = greedy.greedy_11(map)
-# output.output(routes, K)
 
-# K_list = []
-# for i in range(1):
-#    routes, K = greedy.complete_run(map)
-#    K_list.append(K)
+# # Saves the routes
 # output.output(routes, K)
 
-# print(max(K_list))
-# print(K_list)
+# # Prints score
+# print(f"Score: {K:.2f}")
 
-
-# ----------- Run hillclimber algorithm -------
-# Choose start solution for hillclimber ("greedy" or "random")
-# start_algorithm = "greedy"
-# # Choose heuristic for generating new route ("random", "greedy", "hillclimber") (when choosing greedy+greedy, see greedy algorithm)
-# route_heuristic = "random"
-
-# K_list = []
-# iterations = []
-# all_lists_values = []
-# original_all_routes, copy_all_stations, var_min, current_k = hillclimber.initial_hillclimber(map, start_algorithm)
-# for i in range(10000):
-#     routes, current_k, var_min, values_list = hillclimber.hillclimber(map, route_heuristic, original_all_routes, copy_all_stations, var_min, current_k)
-#     K_list.append(current_k)
-#     iterations.append(i)
-#     all_lists_values.append(values_list)
-
-# # print(K_list)
-# print(min(K_list))
-# print(max(K_list))
-# write_results(all_lists_values)
-# plt.plot(iterations, K_list)
-# plt.show()
-# plot_results(all_lists_values)
-# output.output(routes, current_k)
-
-
-
-
-
-# Plots all stations with connections
-# all_stations = import_data.import_data(map)
+# # Visualisation
 # plot.plot_routes(routes, all_stations)
-# plot.plot(all_stations)
 
-# for route in routes:
+# ------------ End greedy algoritm ---------- #
 
-#   plot.live_plot(route, all_stations)
+
+# ----------- Run hillclimber algorithm ----- #
+
+# Choose amount of iterations
+iterations = 100
+
+# Choose start solution for hillclimber ("greedy" or "random")
+start_algorithm = "random"
+
+# Choose heuristic for generating new route ("random", "hillclimber")
+route_heuristic = "random"
+
+# Initiate lists
+K_values = []
+runs = []
+data = []
+
+# Run an algoritm once to get a start state
+original_all_routes, copy_all_stations, var_min, current_k = hillclimber.initial_hillclimber(map, start_algorithm)
+
+# Run hillclimber x times
+for i in range(iterations):
+    routes, current_k, var_min, values_list = hillclimber.hillclimber(map, route_heuristic, original_all_routes, copy_all_stations, var_min, current_k)
+
+    # Save best run
+    if i != 0:
+        if current_k > max(K_values):
+            output.output(routes, current_k)
+
+    K_values.append(current_k)
+    runs.append(i)
+    data.append(values_list)
+
+# Print best score
+print(f"Best score: {max(K_values):.2f}")
+
+# Save all data in "results-values.csv" file
+write_results(data)
+
+# Plot the data
+plt.plot(runs, K_values)
+plt.title("Hillclimber algoritme")
+plt.xlabel("Iteratie")
+plt.ylabel("Score")
+plt.show()
+
+# ------- End Hillclimber algorithm ----- #
 
 
 #-------------Experiments-------------
@@ -101,5 +123,5 @@ map = "Nationaal"
 # experiment_random(map)
 
 # Run hillclimber experiment
-experiment_hillclimber(map)
+# experiment_hillclimber(map)
 

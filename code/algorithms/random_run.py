@@ -112,4 +112,4 @@ def random_algorithm(map):
     P = score_function.fraction_p(all_stations)
     K = score_function.calculate_var_k(P, T, Min)
 
-    return all_routes, K
+    return all_routes, K, all_stations
