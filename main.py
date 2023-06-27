@@ -117,14 +117,14 @@ plt.show()
 # ------- End Hillclimber algorithm ----- #
 
 
-#-------------Experiments-------------
+# ------------- Experiments ------------- #
 iterations_experiment = 1000000
 
 # Run random experiment
 #experiment_random(map, iterations_experiment)
 
 # Run hillclimber experiment with random start solution and random new route
-experiment_hillclimber(map, iterations_experiment, begin="random", algoritme="random")
+# experiment_hillclimber(map, iterations_experiment, begin="random", algoritme="random")
 
 # Run hillclimber experiment with random start solution and hillclimber new route
 #experiment_hillclimber(map, iterations_experiment, begin="random", algoritme="hillclimber")

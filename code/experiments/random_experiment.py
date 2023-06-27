@@ -1,23 +1,28 @@
+"""Experiment with random algorithm."""
+
+import matplotlib.pyplot as plt
+
 from code.algorithms import random_run
 from code.helper import output
-from code.imports import import_data
-from code.visualisation import plot
-import matplotlib.pyplot as plt
-import copy
-import csv
 
 def experiment_random(map, iterations_experiment):
+    """Preceeds experiment with random algorithm."""
+    
     # Amount of iterations
     max_iterations = iterations_experiment
 
     K_list = []
+
+    # Runs random algorithm in range of iterations
     for i in range(max_iterations):
         routes, K = random_run.random_algorithm(map)
         K_list.append(K)
         print(i)
+
+    # Plot the routes
     output.output(routes, K)
 
-    # Plot histogram
+    # Plot histogram with the scores
     plt.title(f"Scores random algoritme (max: {int(max(K_list))})")
     plt.hist(K_list, bins=100, color="blue", ec="lightblue")
     plt.xlabel("Score")

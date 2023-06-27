@@ -8,8 +8,8 @@ from code.helper import score_function
 import random
 import copy
 
-
 def initial_hillclimber(map, start_algorithm):
+    """Generates initial solution for hillclimber algorithm."""
 
     # Importing all stations from map
     all_stations = import_data.import_data(map)
@@ -25,7 +25,7 @@ def initial_hillclimber(map, start_algorithm):
     if start_algorithm == "greedy12":
         all_routes, first_k = greedy.greedy_12(map)
 
-    # Create new list for storage of all routes
+    # Creates new list for storage of all routes
     original_all_routes = []
     var_min = 0
     for route in all_routes:
@@ -36,7 +36,8 @@ def initial_hillclimber(map, start_algorithm):
 
 
 def hillclimber(map, route_heuristic, original_all_routes, copy_all_stations, var_min, current_k):
-    
+    """Produces solution with given map."""
+
     # Get index from random route from all routes
     random_current_route = random.choice(original_all_routes)
     index = original_all_routes.index(random_current_route)
@@ -92,7 +93,7 @@ def hillclimber(map, route_heuristic, original_all_routes, copy_all_stations, va
     for route in new_all_routes:
         var_min_new += route.total_time
 
-    # Variabels calculation
+    # Calculates variabels
     var_t = len(new_all_routes)
     var_p = score_function.fraction_p(copy_all_stations)
     var_min_totaal = var_min_new
