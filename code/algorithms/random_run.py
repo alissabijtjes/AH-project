@@ -1,4 +1,3 @@
-import csv
 import random
 
 from code.imports import import_data
