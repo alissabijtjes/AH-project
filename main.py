@@ -98,8 +98,23 @@ map = "Nationaal"
 #-------------Experiments-------------
 
 # Run random experiment
-# experiment_random(map)
+#experiment_random(map)
 
-# Run hillclimber experiment
-experiment_hillclimber(map)
+# Run hillclimber experiment with random start solution and random new route
+#experiment_hillclimber(map, begin="random", algoritme="random")
+
+# Run hillclimber experiment with random start solution and hillclimber new route
+#experiment_hillclimber(map, begin="random", algoritme="hillclimber")
+
+# Run hillclimber experiment with greedy start solution and hillclimber new route
+# experiment_hillclimber(map, begin="greedy", algoritme="hillclimber")
+
+# Run hillclimber experiment with greedy11 start solution and hillclimber new route
+experiment_hillclimber(map, begin="greedy11", algoritme="hillclimber")
+
+# Run hillclimber experiment with greedy11 start solution and hillclimber new route
+# experiment_hillclimber(map, begin="greedy12", algoritme="hillclimber")
+
+
+
 

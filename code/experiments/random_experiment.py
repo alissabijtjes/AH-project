@@ -7,9 +7,11 @@ import copy
 import csv
 
 def experiment_random(map):
-    # ------------- Run random algorithm -----------
+    # Choose amount of iterations
+    max_iterations = 100000
+
     K_list = []
-    for i in range(100000):
+    for i in range(max_iterations):
         routes, K = random_run.random_algorithm(map)
         K_list.append(K)
         print(i)
