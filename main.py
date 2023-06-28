@@ -13,7 +13,7 @@ map = "Nationaal"
 
 # # ----------- Run random algorithm ----------- #
 if sys.argv[1] == "random_alg":
-
+    
     # Get amount of iterations from terminal
     iterations = int(sys.argv[2])
 
