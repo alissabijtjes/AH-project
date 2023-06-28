@@ -27,7 +27,7 @@ def experiment(map, iterations_experiment, begin, algoritme):
     # Runs hillclimber in range of iterations
     for i in range(max_iterations):
         if i % 1000 == 0:
-            print(i)
+            print(f"iteration: {i}")
         routes, current_k, var_min, values_list = hillclimber.hillclimber(map, route_heuristic, original_all_routes, copy_all_stations, var_min, current_k)
         
         # Update the output with routes of the current best k-score
