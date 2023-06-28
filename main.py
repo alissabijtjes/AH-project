@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import sys
 
 from code.algorithms import random_run, greedy, hillclimber
 from code.imports import import_data
@@ -116,23 +117,30 @@ map = "Nationaal"
 # ------------- Experiments ------------- #
 iterations_experiment = 1000000
 
-# # Run random experiment
-# random_exp.experiment(map, iterations_experiment)
+# Run random experiment
+if sys.argv[1] == "random_exp":
+    random_exp.experiment(map, iterations_experiment)
 
-# # Run hillclimber experiment with random start solution and random new route
-# hillclimber_exp.experiment(map, iterations_experiment, begin="random", algoritme="random")
+# Run hillclimber experiment with random start solution and random new route
+if sys.argv[1] == "hill_exp_rr":
+    hillclimber_exp.experiment(map, iterations_experiment, begin="random", algoritme="random")
 
-# # Run hillclimber experiment with random start solution and hillclimber new route
-# hillclimber_exp.experiment(map, iterations_experiment, begin="random", algoritme="hillclimber")
+# Run hillclimber experiment with random start solution and hillclimber new route
+if sys.argv[1] == "hill_exp_rh":
+    hillclimber_exp.experiment(map, iterations_experiment, begin="random", algoritme="hillclimber")
 
-# # Run hillclimber experiment with greedy start solution and hillclimber new route
-# hillclimber_exp.experiment(map, iterations_experiment, begin="greedy", algoritme="hillclimber")
+# Run hillclimber experiment with greedy start solution and hillclimber new route
+if sys.argv[1] == "hill_exp_g": 
+    hillclimber_exp.experiment(map, iterations_experiment, begin="greedy", algoritme="hillclimber")
 
-# # Run hillclimber experiment with greedy (11 routes) start solution and hillclimber new route
-# hillclimber_exp.experiment(map, iterations_experiment, begin="greedy11", algoritme="hillclimber")
+# Run hillclimber experiment with greedy (11 routes) start solution and hillclimber new route
+if sys.argv[1] == "hill_exp_g11":
+    hillclimber_exp.experiment(map, iterations_experiment, begin="greedy11", algoritme="hillclimber")
 
-# # Run hillclimber experiment with greedy (12 routes) start solution and hillclimber new route
-# hillclimber_exp.experiment(map, iterations_experiment, begin="greedy12", algoritme="hillclimber")
+# Run hillclimber experiment with greedy (12 routes) start solution and hillclimber new route
+if sys.argv[1] == "hill_exp_g12":
+    hillclimber_exp.experiment(map, iterations_experiment, begin="greedy12", algoritme="hillclimber")
 
 # Run hillclimber with different number of routes (1-20)
-# var_routes.experiment(map, iterations_experiment)
+if sys.argv[1] == "routes_exp":
+    var_routes.experiment(map, iterations_experiment)

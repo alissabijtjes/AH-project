@@ -15,7 +15,7 @@ def experiment(map, iterations_experiment):
 
     # Runs random algorithm in range of iterations
     for i in range(max_iterations):
-        routes, K = random_run.random_algorithm(map)
+        routes, K, all_stations = random_run.random_algorithm(map, max_routes=None)
         K_list.append(K)
         print(i)
 
