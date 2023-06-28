@@ -14,8 +14,8 @@ map = "Nationaal"
 # # ----------- Run random algorithm ----------- #
 if sys.argv[1] == "random_alg":
 
-    # Set how many runs you want
-    iterations = 1000000
+    # Get amount of iterations from terminal
+    iterations = int(sys.argv[2])
 
     # list for the score
     K_values = []
@@ -71,8 +71,8 @@ if sys.argv[1] == "greedy_alg":
 # ----------- Run hillclimber algorithm ----- #
 if sys.argv[1] == "hillclimber_alg":
 
-    # Choose amount of iterations
-    iterations = 1000000
+    # Get amount of iterations from terminal
+    iterations = int(sys.argv[2])
 
     # Choose start solution for hillclimber ("greedy" or "random")
     start_algorithm = "random"
@@ -118,7 +118,7 @@ if sys.argv[1] == "hillclimber_alg":
 
 
 # ------------- Experiments ------------- #
-iterations_experiment = 100000
+iterations_experiment = int(sys.argv[2])
 
 # Run random experiment
 if sys.argv[1] == "random_exp":

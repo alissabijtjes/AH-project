@@ -21,50 +21,42 @@ pip install -r requirements.txt
 
 ### Gebruik
 Om de algoritmes en experimenten te runnen kan het onderstaande in de terminal worden gebruikt.
-
+```
+python main.py {experiment} {iteraties}
+```
 #### Runnen algoritmes:
+Voor het runnen van de algoritmes gebruik het gewenste aantal iteraties.
 1. Run random algoritme
-```
-python main.py random_alg
-```
+    - {experiment} = random_alg
+
 2. Run greedy algoritme
-```
-python main.py random_alg
-```
+    - {experiment} = greedy_alg
+
 3. Run hillclimber algoritme
-```
-python main.py hillclimber_alg
-```
+    - {experiment} = hillclimber_alg
 
 #### Runnen experimenten:
+Voor het runnen van experimenten 1 t/m 6 zijn 1000000 iteraties gedaan. Voor experiment 7 zijn 10000 iteraties gedaan.
 1. Run random experiment
-```
-python main.py random_exp
-```
+    - {experiment} = random_exp
+
 2. Run hillclimber experiment(random-random) met begin is random en algoritme is random
-```
-python main.py hill_exp_rr
-```
+    - {experiment} = hill_exp_rr
+
 3. Run hillclimber experiment (random-hillclimber) met begin is random en algoritme is hillclimber
-```
-python main.py hill_exp_rh
-```
+    - {experiment} = hill_exp_rh
+
 4. Run hillclimber experiment (greedy-hillclimber) met begin is greedy en algoritme is hillclimber
-```
-python main.py hill_exp_g
-```
+    - {experiment} = hill_exp_g
+
 5. Run hillclimber experiment (greedy-hillclimber) met begin is greedy11 en algoritme is hillclimber
-```
-python main.py hill_exp_g11
-```
+    - {experiment} = hill_exp_g11
+
 6. Run hillclimber experiment (greedy-hillclimber) met begin is greedy12 en algoritme is hillclimber
-```
-python main.py hill_exp_g12
-```
+    - {experiment} = hill_exp_g12
+
 7. Run hillclimber experiment (different number of routes)
-```
-python main.py hill_exp_routes
-```
+    - {experiment} = hill_exp_routes
 
 ### Structuur
 De hierop volgende lijst beschrijft de belangrijkste mappen en files in het project, en waar je ze kan vinden:
