@@ -60,7 +60,7 @@ def random_algorithm(map, max_routes=None):
             max_routes = random.randint(1,20)
 
         if map == "Holland":
-            max_routes = random.randit(1,7)
+            max_routes = random.randint(1,7)
 
     # Create the routes
     for i in range(0, max_routes):
