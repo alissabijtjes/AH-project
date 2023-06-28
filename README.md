@@ -3,8 +3,8 @@ Welke trein waar en wanneer rijdt wordt bepaald door de lijnvoering. Maar wat is
 ```
  K = p*10000 - (T*100 + Min)
 
- waarbij p de fractie van bereden verbindingen is, T het aantal trajecten en Min de totale tijd van alle trajecten.
 ```
+waarbij p de fractie van bereden verbindingen is, T het aantal trajecten en Min de totale tijd van alle trajecten.
 
 ## Aanpak algoritmen
 ### Random
