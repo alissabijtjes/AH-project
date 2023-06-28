@@ -52,18 +52,20 @@ if sys.argv[1] == "random_alg":
 
 # ----------- Run greedy algoritm ----------- #
 if sys.argv[1] == "greedy_alg":
+    if len(sys.argv) == 2:
+        # Run algoritm (Only needs to runs once because gives the same solution every time)
+        routes, K, all_stations = greedy.complete_run(map)
 
-    # Run algoritm (Only needs to runs once because gives the same solution every time)
-    routes, K, all_stations = greedy.complete_run(map)
+        # Saves the routes
+        output.output(routes, K)
 
-    # Saves the routes
-    output.output(routes, K)
+        # Prints score
+        print(f"Score: {K:.2f}")
 
-    # Prints score
-    print(f"Score: {K:.2f}")
-
-    # Visualisation
-    plot.plot_routes(routes, all_stations)
+        # Visualisation
+        plot.plot_routes(routes, all_stations)
+    else:
+        print("Iterations not possible for greedy.")
 
 # ------------ End greedy algoritm ---------- #
 
