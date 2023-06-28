@@ -2,12 +2,16 @@
 Welke trein waar en wanneer rijdt wordt bepaald door de lijnvoering. Maar wat is de optimale samenstelling van deze trajecten? In deze case wordt een oplossing gezocht om een optimale lijnvoering te maken voor Nederland. Hier zijn bepaalde voorwaarden aan verbonden, zo mag een traject niet langer zijn dan 180 minuten en mogen er maximaal 20 trajecten worden gebruikt. Daarbij is de data over de stations en de connecties tussen stations beschikbaar. Voor de bepaling van de kwaliteit van de lijnvoering is een doelfunctie opgesteld: 
 ```
  K = p*10000 - (T*100 + Min)
+
+ waarbij p de fractie van bereden verbindingen is, T het aantal trajecten en Min de totale tijd van alle trajecten.
 ```
 
 ## Aanpak algoritmen
 ### Random
+Het random algoritme kiest eerst random veel trajecten er gemaakt worden. Daarna begint het op een random station en kiest het volgende station random. Dit loopt tot dat elk traject de maximale tijd bereden heeft. Dit is dus niet random. Het algoritme maakt altijd alle trajecten af, ook al zijn alle verbindingen al bereden.
 
 ### Greedy
+Het greedy algoritme begint elke keer bij het station met de minste verbindingen wat nog niet bezocht is. Vervolgens kijkt het of er verbindningen zijn die nog niet bereden zijn. Als alle verbindingen bereden zijn kijkt het naar alle verbonden stations en of er een station is die een niet bereden verbinding heeft. Als alle verbonden station geen niet-bereden verbindingen hebben stopt het traject. Het algoritme stopt direct wanneer alle verbindingen bereden zijn. Hier is niks random een dit algoritme geeft dus elke keer precies dezelfde oplossing.
 
 ### Hillclimber
 Voor het hillclimber algoritme wordt een random of greedy beginoplossing gegenereerd. Daarna wordt er een nieuwe oplossing gemaakt waarbij 1 random traject wordt uitgekozen uit de gehele lijnvoering en deze wordt verandert in een nieuw traject. Dit nieuwe traject kan bestaan uit een random gegenereerd traject of een traject met heuristieken die kiest voor connecties die nog niet bereden zijn. Als de nieuwe oplossing een hogere K-waarde heeft dan de huidige oplossing wordt deze de nieuwe huidige oplossing.
