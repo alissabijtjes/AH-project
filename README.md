@@ -60,16 +60,21 @@ Voor het runnen van experimenten 1 t/m 6 zijn 1000000 iteraties gedaan. Voor exp
 
 ### Structuur
 De hierop volgende lijst beschrijft de belangrijkste mappen en files in het project, en waar je ze kan vinden:
-* /code: bevat alle code van dit project
-    * /code/algorithms: bevat de code van de algoritmes
-    * /code/classes: bevat de code van de classes
-    * /code/experiments: bevat de code van de experimenten
-    * /code/helper: bevat de code van helper functies
-    * /code/imports: bevat de code voor het importeren van de data
-    * /code/visualisation: bevat de code voor visualisatie van de case
-* /data: bevat de databestanden met de stations en connecties
-* /docs: bevat de bestanden met de berekening van de state space en de berekening van de theoretische optimale score
-* /resultaten: bevat de bestanden met de output en de resultaten van de experimenten
+* /code: bevat alle code van dit project.
+    * /code/algorithms: bevat de code van de algoritmes.
+    * /code/classes: bevat de code van de classes.
+    * /code/experiments: bevat de code van de experimenten.
+    * /code/helper: bevat de code van helper functies.
+    * /code/imports: bevat de code voor het importeren van de data.
+    * /code/visualisation: bevat de code voor visualisatie van de case.
+* /data: bevat de databestanden met de stations en connecties tussen stations voor Holland en Nationaal.
+* /documents: bevat de bestanden met de berekening van de state space en de berekening van de theoretische optimale score.
+* /results: bevat de bestanden met de output en de resultaten van de experimenten.
+    * /results/greedy-hillclimber: bevat de bestanden met de grafieken van de greedy experimenten.
+    * /results/hillclimber-r-h: bevat het bestand met de grafiek van hillclimber experiment.
+    * /results/hillclimber-r-r: bevat het bestand met de grafiek van hillclimber experiment.
+    * /results/hillclimber-trajects: bevat het bestand met de grafiek van hillclimber trajecten experiment.
+    * /results/random: bevat het bestand met de grafiek van het random experiment.
 
 ## Auteurs
 * Alissa Bijtjes
