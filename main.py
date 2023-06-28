@@ -118,7 +118,7 @@ if sys.argv[1] == "hillclimber_alg":
 
 
 # ------------- Experiments ------------- #
-iterations_experiment = 1000000
+iterations_experiment = 100000
 
 # Run random experiment
 if sys.argv[1] == "random_exp":

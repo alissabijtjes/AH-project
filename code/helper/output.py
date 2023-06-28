@@ -12,7 +12,7 @@ def output(routes, score):
         station_names.append((name_list, route.id))
 
     # Creates output in output file in folder resultaten
-    with open("resultaten/output.csv", 'w', newline='') as file:
+    with open("results/output.csv", 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(["train", "stations"])
 

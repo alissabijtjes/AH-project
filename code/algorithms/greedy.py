@@ -9,7 +9,7 @@ def my_Func(all_stations):
     return(len(all_stations.connections))
 
 
-def greedy(all_stations, map):
+def one_greedy_route(all_stations, map):
     """Creates one train route."""
 
     # Set correct value for the maximum time
@@ -55,7 +55,7 @@ def greedy(all_stations, map):
         
         # Set current station als last station in list
         current_station = route.route[-1]
-
+        
         destination = None 
         
         # If all stations are visited, set destination to station with not ridden connection
@@ -125,7 +125,7 @@ def complete_run(map):
             break
 
         # Create route
-        route = greedy(all_stations, map)
+        route = one_greedy_route(all_stations, map)
         Min += route.total_time
         all_routes.append(route)
      
@@ -136,7 +136,7 @@ def complete_run(map):
 
     return all_routes, K, all_stations
 
-def greedy_12(map):
+def greedy_12_routes(map):
     """Removes one route from the greedy solution"""
 
     # Run greedy algorithm
@@ -171,7 +171,7 @@ def greedy_12(map):
     return all_routes, K
     
 
-def greedy_11(map):
+def greedy_11_routes(map):
     """Remove two routes from greedy solution."""
 
     # Run greedy algorithm
