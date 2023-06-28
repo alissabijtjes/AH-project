@@ -20,30 +20,43 @@ pip install -r requirements.txt
 ```
 
 ### Gebruik
-Bestand runnen:
+Om de algoritmes en experimenten te runnen kan het onderstaande in de terminal worden gebruikt.
+```
+python main.py {experiment} {iteraties}
+```
+#### Runnen algoritmes:
+Voor het runnen van de algoritmes gebruik het gewenste aantal iteraties.
+1. Run random algoritme
+    - {experiment} = random_alg
 
-```
-python main.py
-```
-In main.py staan voorbeelden voor het gebruik van de de verschillende functies om de algoritmes te draaien.
+2. Run greedy algoritme
+    - {experiment} = greedy_alg
+
+3. Run hillclimber algoritme
+    - {experiment} = hillclimber_alg
 
 #### Runnen experimenten:
-1. Random
-    * Run random_exp.experiment in main (line 120)
-2. Hillclimber (random-random)
-    * Run hillclimber_exp.experiment in main met begin is random en algoritme is random
-3. Hillclimber (random-hillclimber)
-    * Run hillclimber_exp.experiment in main met begin is random en algoritme is hillclimber
-4. Hillclimber (greedy-hillclimber)
-    * Run hillclimber_exp.experiment in main met begin is greedy en algoritme is hillclimber
-5. Hillclimber (greedy-hillclimber)
-    * Run hillclimber_exp.experiment in main met begin is greedy11 en algoritme is hillclimber
-6. Hillclimber (greedy-hillclimber)
-    * Run hillclimber_exp.experiment in main met begin is greedy12 en algoritme is hillclimber
-7. Hillclimber (different number of routes)
-    * Run var_routes.experiment in main
+Voor het runnen van experimenten 1 t/m 6 zijn 1000000 iteraties gedaan. Voor experiment 7 zijn 10000 iteraties gedaan.
+1. Run random experiment
+    - {experiment} = random_exp
 
-experimenten runnen in terminal
+2. Run hillclimber experiment(random-random) met begin is random en algoritme is random
+    - {experiment} = hill_exp_rr
+
+3. Run hillclimber experiment (random-hillclimber) met begin is random en algoritme is hillclimber
+    - {experiment} = hill_exp_rh
+
+4. Run hillclimber experiment (greedy-hillclimber) met begin is greedy en algoritme is hillclimber
+    - {experiment} = hill_exp_g
+
+5. Run hillclimber experiment (greedy-hillclimber) met begin is greedy11 en algoritme is hillclimber
+    - {experiment} = hill_exp_g11
+
+6. Run hillclimber experiment (greedy-hillclimber) met begin is greedy12 en algoritme is hillclimber
+    - {experiment} = hill_exp_g12
+
+7. Run hillclimber experiment (different number of routes)
+    - {experiment} = hill_exp_routes
 
 ### Structuur
 De hierop volgende lijst beschrijft de belangrijkste mappen en files in het project, en waar je ze kan vinden:
