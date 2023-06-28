@@ -13,7 +13,7 @@ map = "Nationaal"
 # # ----------- Run random algorithm ----------- #
 
 # # Set how many runs you want
-# iterations = 1000000
+# iterations = 1000
 
 # # list for the score
 # K_values = []
@@ -67,48 +67,48 @@ map = "Nationaal"
 
 # ----------- Run hillclimber algorithm ----- #
 
-# # Choose amount of iterations
-# iterations = 1000000
+# Choose amount of iterations
+iterations = 10000
 
-# # Choose start solution for hillclimber ("greedy" or "random")
-# start_algorithm = "random"
+# Choose start solution for hillclimber ("greedy" or "random")
+start_algorithm = "random"
 
-# # Choose heuristic for generating new route ("random", "hillclimber")
-# route_heuristic = "hillclimber"
+# Choose heuristic for generating new route ("random", "hillclimber")
+route_heuristic = "hillclimber"
 
-# # Initiate lists
-# K_values = []
-# runs = []
-# data = []
+# Initiate lists
+K_values = []
+runs = []
+data = []
 
-# # Run an algoritm once to get a start state
-# original_all_routes, copy_all_stations, var_min, current_k = hillclimber.initial_hillclimber(map, start_algorithm)
+# Run an algoritm once to get a start state
+original_all_routes, copy_all_stations, var_min, current_k = hillclimber.initial_hillclimber(map, start_algorithm)
 
-# # Run hillclimber x times
-# for i in range(iterations):
-#     routes, current_k, var_min, values_list = hillclimber.hillclimber(map, route_heuristic, original_all_routes, copy_all_stations, var_min, current_k)
+# Run hillclimber x times
+for i in range(iterations):
+    routes, current_k, var_min, values_list = hillclimber.hillclimber(map, route_heuristic, original_all_routes, copy_all_stations, var_min, current_k)
 
-#     # Save best run
-#     if i != 0:
-#         if current_k > max(K_values):
-#             output.output(routes, current_k)
+    # Save best run
+    if i != 0:
+        if current_k > max(K_values):
+            output.output(routes, current_k)
 
-#     K_values.append(current_k)
-#     runs.append(i)
-#     data.append(values_list)
+    K_values.append(current_k)
+    runs.append(i)
+    data.append(values_list)
 
-# # Print best score
-# print(f"Best score: {max(K_values):.2f}")
+# Print best score
+print(f"Best score: {max(K_values):.2f}")
 
-# # Save all data in "results-values.csv" file
-# write_results.write(data)
+# Save all data in "results-values.csv" file
+write_results.write(data)
 
-# # Plot the data
-# plt.plot(runs, K_values)
-# plt.title("Hillclimber algoritme")
-# plt.xlabel("Iteratie")
-# plt.ylabel("Score")
-# plt.show()
+# Plot the data
+plt.plot(runs, K_values)
+plt.title("Hillclimber algoritme")
+plt.xlabel("Iteratie")
+plt.ylabel("Score")
+plt.show()
 
 # ------- End Hillclimber algorithm ----- #
 

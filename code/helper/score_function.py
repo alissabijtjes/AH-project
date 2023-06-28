@@ -15,9 +15,7 @@ def fraction_p(all_stations):
     
     return ridden / total
 
-def calculate_var_k(var_p, var_t, var_min_totaal):
+def calculate_var_k(p, t, min_totaal):
     """Calculates k-value with the score function."""
-
-    var_k = var_p * 10000 - (var_t * 100 + var_min_totaal)
     
-    return var_k
+    return p * 10000 - (t * 100 + min_totaal)

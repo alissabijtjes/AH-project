@@ -4,7 +4,7 @@ from code.imports import import_data
 from code.helper import score_function
 from code.classes.route import Route
 
-def route_(all_stations, map):
+def single_route(all_stations, map):
     """Creates one train route."""
 
     # Set correct value for the maximum time
@@ -64,7 +64,7 @@ def random_algorithm(map, max_routes=None):
 
     # Create the routes
     for i in range(0, max_routes):
-        route = route_(all_stations, map)
+        route = single_route(all_stations, map)
         Min += route.total_time
         all_routes.append(route)
 
