@@ -59,7 +59,8 @@ def experiment(map, iterations_experiment, begin, algoritme):
         plt.legend(["Hillclimber", "Max random algoritme(4727)"])
     
     # Plot extra line when using a greedy start algorithm
-    if start_algorithm == "greedy" or "greedy11" or "greedy12":
+    if start_algorithm == "greedy" or start_algorithm == "greedy11" or start_algorithm == "greedy12":
+        print("test")
         plt.axhline(y=7549, color="r")
         plt.legend(["Hillclimber", "Max theoretische score(7549)"])
         plt.ylim(6950, 7600)

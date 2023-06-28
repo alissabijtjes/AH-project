@@ -2,9 +2,8 @@
 Welke trein waar en wanneer rijdt wordt bepaald door de lijnvoering. Maar wat is de optimale samenstelling van deze trajecten? In deze case wordt een oplossing gezocht om een optimale lijnvoering te maken voor Nederland. Hier zijn bepaalde voorwaarden aan verbonden, zo mag een traject niet langer zijn dan 180 minuten en mogen er maximaal 20 trajecten worden gebruikt. Daarbij is de data over de stations en de connecties tussen stations beschikbaar. Voor de bepaling van de kwaliteit van de lijnvoering is een doelfunctie opgesteld: 
 ```
  K = p*10000 - (T*100 + Min)
-
- waarbij p de fractie van bereden verbindingen is, T het aantal trajecten en Min de totale tijd van alle trajecten.
 ```
+waarbij p de fractie van bereden verbindingen is, T het aantal trajecten en Min de totale tijd van alle trajecten.
 
 ## Aanpak algoritmen
 ### Random
@@ -24,9 +23,9 @@ pip install -r requirements.txt
 ```
 
 ### Gebruik
-Om de algoritmes en experimenten te runnen kan het onderstaande in de terminal worden gebruikt.
+Om de algoritmes en experimenten te runnen kan het onderstaande in de terminal worden gebruikt (of gebruik python ipv. python3).
 ```
-python main.py {experiment} {iteraties}
+python3 main.py {experiment} {iteraties}
 ```
 #### Runnen algoritmes:
 Voor het runnen van de algoritmes gebruik het gewenste aantal iteraties.
