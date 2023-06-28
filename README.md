@@ -14,7 +14,10 @@ Voor het hillclimber algoritme wordt een random of greedy beginoplossing gegener
 
 ## Aan de slag
 ### Vereisten
-Deze codebase is geschreven in Python 3.9. Er hoeven geen packages te worden geinstalleerd om de code te runnen.
+Deze codebase is geschreven in Python 3.9. De requirements zijn te downloaden via pip met de volgende instructie.
+```
+pip install -r requirements.txt
+```
 
 ### Gebruik
 Bestand runnen:
@@ -39,6 +42,8 @@ In main.py staan voorbeelden voor het gebruik van de de verschillende functies o
     * Run hillclimber_exp.experiment in main met begin is greedy12 en algoritme is hillclimber
 7. Hillclimber (different number of routes)
     * Run var_routes.experiment in main
+
+experimenten runnen in terminal
 
 ### Structuur
 De hierop volgende lijst beschrijft de belangrijkste mappen en files in het project, en waar je ze kan vinden:
