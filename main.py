@@ -14,7 +14,7 @@ map = "Nationaal"
 # # ----------- Run random algorithm ----------- #
 
 # # Set how many runs you want
-# iterations = 1000
+# iterations = 1000000
 
 # # list for the score
 # K_values = []
@@ -69,7 +69,7 @@ map = "Nationaal"
 # ----------- Run hillclimber algorithm ----- #
 
 # # Choose amount of iterations
-# iterations = 100
+# iterations = 1000000
 
 # # Choose start solution for hillclimber ("greedy" or "random")
 # start_algorithm = "random"
