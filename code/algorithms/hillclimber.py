@@ -7,7 +7,7 @@ from code.classes.route import Route
 from code.helper import score_function
 
 
-def initial_hillclimber(map, start_algorithm, number_of_routes=0):
+def initial_hillclimber(map, start_algorithm, number_of_routes=None):
 
     # Importing all stations from map
     all_stations = import_data.import_(map)
@@ -78,9 +78,9 @@ def hillclimber(map, route_heuristic, original_all_routes, copy_all_stations, va
 
     # Generates new route, whether random, greedy or hillclimber heuristic is chosen
     if route_heuristic == "random":
-        new_route = random_run.route_(copy_all_stations, map)
+        new_route = random_run.single_route(copy_all_stations, map)
     if route_heuristic == "greedy":
-        new_route = greedy.greedy(copy_all_stations, map)
+        new_route = greedy.one_greedy_route(copy_all_stations, map)
     if route_heuristic == "hillclimber":
         new_route = hillclimber_new_route(copy_all_stations, map)
 

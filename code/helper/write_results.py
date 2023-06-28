@@ -2,7 +2,7 @@ import csv
 import matplotlib.pyplot as plt
 
 def write(all_lists_values):
-    filename = "resultaten/results_values.csv"
+    filename = "results/results_values.csv"
 
     fieldnames = ['p', 't', 'min', 'k']
 

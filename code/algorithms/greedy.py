@@ -55,7 +55,7 @@ def one_greedy_route(all_stations, map):
         
         # Set current station als last station in list
         current_station = route.route[-1]
-
+        
         destination = None 
         
         # If all stations are visited, set destination to station with not ridden connection
