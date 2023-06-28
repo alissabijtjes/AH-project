@@ -17,7 +17,8 @@ def experiment(map, iterations_experiment):
     for i in range(max_iterations):
         routes, K, all_stations = random_run.random_algorithm(map, max_routes=None)
         K_list.append(K)
-        print(i)
+        if i % 1000 == 0:
+            print(f"iteration: {i}")
 
     # Plot the routes
     output.output(routes, K)
